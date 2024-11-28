@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/your-repo-name/repo-root.git
+    repoURL: https://github.com/mahdikhashan/jku-cloud-computing
     targetRevision: main
     path: apps/nginx
   destination:
