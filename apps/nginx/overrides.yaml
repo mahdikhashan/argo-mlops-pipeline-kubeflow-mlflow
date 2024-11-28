@@ -1,0 +1,6 @@
+replicaCount: 3
+ingress:
+  enabled: true
+  host: nginx.custom-domain.com
+service:
+  type: LoadBalancer
