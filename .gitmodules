@@ -1,3 +1,0 @@
-[submodule "manifests"]
-	path = manifests
-	url = https://github.com/kubeflow/manifests
