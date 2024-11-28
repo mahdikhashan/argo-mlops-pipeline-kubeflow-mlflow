@@ -17,11 +17,9 @@ spec:
       prune: true
       selfHeal: true
   sources:
-    - name: base
-      path: apps/base
+    - path: apps/base
       repoURL: https://github.com/mahdikhashan/jku-cloud-computing
       targetRevision: main
-    - name: namespaces
-      path: namespaces
+    - path: namespaces
       repoURL: https://github.com/mahdikhashan/jku-cloud-computing
       targetRevision: main
