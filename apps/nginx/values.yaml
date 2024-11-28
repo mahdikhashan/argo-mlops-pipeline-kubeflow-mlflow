@@ -4,8 +4,8 @@ image:
   tag: "1.21.1"
   pullPolicy: IfNotPresent
 service:
-  type: ClusterIP
-  port: 80
+  type: LoadBalancer
+  port: 8888
 ingress:
   enabled: false
   host: nginx.example.com
