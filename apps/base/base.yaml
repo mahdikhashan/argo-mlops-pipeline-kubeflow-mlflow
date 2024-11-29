@@ -1,17 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nginx-app
+  name: base
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/mahdikhashan/jku-cloud-computing
     targetRevision: main
-    path: apps/nginx
+    path: apps/kubeflow
   destination:
     server: https://kubernetes.default.svc
-    namespace: nginx-ns
   syncPolicy:
     automated:
       prune: true
