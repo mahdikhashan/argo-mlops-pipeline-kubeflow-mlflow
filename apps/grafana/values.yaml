@@ -1,4 +1,4 @@
 admin:
   existingSecret: null
-  userKey: admin
-  passwordKey: admin
+  user: admin
+  password: admin
