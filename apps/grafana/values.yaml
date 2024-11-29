@@ -1,4 +1,0 @@
-admin:
-  existingSecret: null
-  user: admin
-  password: admin
