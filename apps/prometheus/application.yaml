@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/mahdikhashan/jku-cloud-computing
-    path: apps/prometheus
-    targetRevision: main
+    repoURL: https://prometheus-community.github.io/helm-charts
+    chart: prometheus
+    targetRevision: 26.0.0
     helm:
       valueFiles:
         - values.yaml
