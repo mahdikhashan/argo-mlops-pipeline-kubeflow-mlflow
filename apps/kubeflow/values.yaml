@@ -4,19 +4,13 @@ certManager:
   enabled: true
   spec:
     project: default
-    sources:
+    source:
       path: common/cert-manager/base
       repoURL: https://github.com/kubeflow/manifests
       targetRevision: 776d4f4
-      helm:
-        releaseName: "cert-manager"
-        ignoreMissingValueFiles: true
-        valueFiles: [ ]
-        values: |
-          installCRDs: true
   destination:
     namespace: cert-manager
-    name: 'in-cluster'
+    server: https://kubernetes.default.svc
   syncPolicy:
     automated:
       prune: false
