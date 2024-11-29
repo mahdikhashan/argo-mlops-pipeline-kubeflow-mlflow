@@ -1,6 +1,4 @@
-grafana:
-  adminPassword: admin
-  persistence:
-    enabled: false
-  service:
-    type: LoadBalancer
+admin:
+  existingSecret: null
+  userKey: admin
+  passwordKey: admin
