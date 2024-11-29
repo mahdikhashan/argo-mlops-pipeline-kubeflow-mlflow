@@ -15,7 +15,7 @@ certManager:
         values: |
           installCRDs: true
   destination:
-    namespace: argocd
+    namespace: 'cert-manager'
     name: 'in-cluster'
   syncPolicy:
     automated:
