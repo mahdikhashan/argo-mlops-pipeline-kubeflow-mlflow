@@ -8,12 +8,13 @@ certManager:
       path: common/cert-manager/base
       repoURL: https://github.com/kubeflow/manifests
       targetRevision: 776d4f4
-  destination:
-    namespace: cert-manager
-    server: https://kubernetes.default.svc
-  syncPolicy:
-    automated:
-      prune: false
-    syncOptions:
-      - CreateNamespace=true
-      - ServerSideApply=true
+    destination:
+      namespace: cert-manager
+      server: https://kubernetes.default.svc
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+      syncOptions:
+        - CreateNamespace=true
+        - ServerSideApply=true
