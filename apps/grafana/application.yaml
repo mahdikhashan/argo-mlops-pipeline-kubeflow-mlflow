@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/mahdikhashan/jku-cloud-computing
-    path: apps/grafana
-    targetRevision: main
+    repoURL: https://grafana.github.io/helm-charts
+    chart: grafana
+    targetRevision: 8.6.4
     helm:
       valueFiles:
         - values.yaml
