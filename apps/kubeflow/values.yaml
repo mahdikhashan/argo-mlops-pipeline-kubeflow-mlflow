@@ -18,3 +18,15 @@ certManager:
       syncOptions:
         - CreateNamespace=true
         - ServerSideApply=true
+
+certManagerKubeflowIssuer:
+  enabled: true
+  project: default
+  source:
+    path: common/cert-manager/kubeflow-issuer/base
+    repoURL: https://github.com/kubeflow/manifests
+    targetRevision: master
+  destination:
+    namespace: cert-manager
+    server: https://kubernetes.default.svc
+  selfSigned: {}
