@@ -1,0 +1,6 @@
+grafana:
+  adminPassword: admin
+  persistence:
+    enabled: false
+  service:
+    type: LoadBalancer

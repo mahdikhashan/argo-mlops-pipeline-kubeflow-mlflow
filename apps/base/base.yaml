@@ -8,10 +8,20 @@ spec:
   source:
     repoURL: https://github.com/mahdikhashan/jku-cloud-computing
     targetRevision: main
-    path: apps/kubeflow
+    path: apps
   destination:
     server: https://kubernetes.default.svc
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+  sources:
+    - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
+      targetRevision: main
+      path: apps/kubeflow
+    - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
+      targetRevision: main
+      path: apps/prometheus
+    - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
+      targetRevision: main
+      path: apps/grafana
