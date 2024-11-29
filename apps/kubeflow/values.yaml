@@ -7,7 +7,7 @@ certManager:
     source:
       path: common/cert-manager/base
       repoURL: https://github.com/kubeflow/manifests
-      targetRevision: 776d4f4
+      targetRevision: master
     destination:
       namespace: cert-manager
       server: https://kubernetes.default.svc
