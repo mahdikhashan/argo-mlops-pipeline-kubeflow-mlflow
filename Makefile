@@ -68,3 +68,7 @@ stop-local-argocd:
 	kubectl wait --for=condition=ready pod --all -n argocd --timeout=600s
 	bash ./scripts/patch-argocd-to-loadbalancer.sh
 	bash ./scripts/echo-argocd-admin-ui-password.sh
+
+.PHONY: install-base-argo-app
+.install-base-argo-app:
+	kubectl apply -f app.yaml
