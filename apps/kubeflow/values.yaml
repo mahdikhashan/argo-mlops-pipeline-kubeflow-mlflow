@@ -5,21 +5,21 @@ certManager:
   spec:
     project: default
     sources:
-      - chart: 'cert-manager'
-        repoURL: https://charts.jetstack.io
-        targetRevision: "1.14.3"
-        helm:
-          releaseName: "cert-manager"
-          ignoreMissingValueFiles: true
-          valueFiles: [ ]
-          values: |
-            installCRDs: true
-    destination:
-      namespace: 'cert-manager'
-      name: 'in-cluster'
-    syncPolicy:
-      automated:
-        prune: false
-      syncOptions:
-        - CreateNamespace=true
-        - ServerSideApply=true
+      path: common/cert-manager/base
+      repoURL: https://github.com/kubeflow/manifests
+      targetRevision: 776d4f4
+      helm:
+        releaseName: "cert-manager"
+        ignoreMissingValueFiles: true
+        valueFiles: [ ]
+        values: |
+          installCRDs: true
+  destination:
+    namespace: 'cert-manager'
+    name: 'in-cluster'
+  syncPolicy:
+    automated:
+      prune: false
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
