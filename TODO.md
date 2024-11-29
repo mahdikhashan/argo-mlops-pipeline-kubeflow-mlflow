@@ -6,3 +6,5 @@
 - [] add kubeflow (find a way)
 - [] implement a pipeline
 - [] register model and serve training result
+- [] implement health check for inference services
+- [] path argo to use load-balancer
