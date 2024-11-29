@@ -72,3 +72,7 @@ stop-local-argocd:
 .PHONY: install-base-argo-app
 .install-base-argo-app:
 	kubectl apply -f app.yaml
+
+.PHONY: get-grafana-password
+.get-grafana-password:
+	kubectl get secret --namespace monitoring grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
