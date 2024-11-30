@@ -196,3 +196,22 @@ centralDashboard:
       syncOptions:
         - CreateNamespace=true
         - ServerSideApply=true
+
+admissionWebhook:
+  enabled: true
+  spec:
+    project: default
+    source:
+      path: apps/admission-webhook/upstream/overlays/cert-manager
+      repoURL: https://github.com/kubeflow/manifests
+      targetRevision: master
+    destination:
+      namespace: argocd
+      name: in-cluster
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+      syncOptions:
+        - CreateNamespace=true
+        - ServerSideApply=true
