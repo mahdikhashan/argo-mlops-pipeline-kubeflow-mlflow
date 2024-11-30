@@ -253,3 +253,22 @@ kubeflowRoles:
       syncOptions:
         - ServerSideApply=true
         - CreateNamespace=true
+
+exampleProfile:
+  enabled: true
+  spec:
+    project: default
+    source:
+      path: common/user-namespace/base
+      repoURL: https://github.com/kubeflow/manifests
+      targetRevision: master
+    destination:
+      namespace: argocd
+      name: in-cluster
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+      syncOptions:
+        - CreateNamespace=true
+        - ServerSideApply=true
