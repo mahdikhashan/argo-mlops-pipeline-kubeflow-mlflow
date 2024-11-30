@@ -84,8 +84,7 @@ centralDashboard:
       name: in-cluster
     syncPolicy:
       automated:
-        prune: true
-        selfHeal: true
+        prune: false
       syncOptions:
         - CreateNamespace=true
         - ServerSideApply=true
