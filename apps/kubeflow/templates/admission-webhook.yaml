@@ -9,5 +9,5 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  {{ .Values.admissionWebhook.spec | toYaml | indent 2 }}
-  {{- end -}}
+{{ .Values.admissionWebhook.spec | toYaml | indent 2 }}
+{{- end -}}
