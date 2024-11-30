@@ -43,24 +43,24 @@ istioBase:
         - CreateNamespace=true
         - ServerSideApply=true
 
-istioNamespace:
-  enabled: true
-  spec:
-    project: default
-    source:
-      path: common/istio-1-23/istio-namespace/base
-      repoURL: https://github.com/kubeflow/manifests
-      targetRevision: master
-    destination:
-      namespace: argocd
-      name: in-cluster
-    syncPolicy:
-      automated:
-        prune: true
-        selfHeal: true
-      syncOptions:
-        - CreateNamespace=true
-        - ServerSideApply=true
+#istioNamespace:
+#  enabled: true
+#  spec:
+#    project: default
+#    source:
+#      path: common/istio-1-23/istio-namespace/base
+#      repoURL: https://github.com/kubeflow/manifests
+#      targetRevision: master
+#    destination:
+#      namespace: argocd
+#      name: in-cluster
+#    syncPolicy:
+#      automated:
+#        prune: true
+#        selfHeal: true
+#      syncOptions:
+#        - CreateNamespace=true
+#        - ServerSideApply=true
 
 istioInstall:
   enabled: true
