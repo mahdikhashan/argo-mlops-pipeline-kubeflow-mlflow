@@ -67,11 +67,30 @@ istioInstall:
   spec:
     project: default
     source:
-      path: common/istio-1-23/istio-install/overlays/oauth2-proxy
+      path: common/istio-1-23/istio-install/overlays/oauth2-proxy.yaml
       repoURL: https://github.com/kubeflow/manifests
       targetRevision: master
     destination:
       namespace: istio-system
+      name: in-cluster
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+      syncOptions:
+        - CreateNamespace=true
+        - ServerSideApply=true
+
+oauth2Proxy:
+  enabled: true
+  spec:
+    project: default
+    source:
+      path: common/oauth2-proxy/overlays/m2m-dex-only/
+      repoURL: https://github.com/kubeflow/manifests
+      targetRevision: master
+    destination:
+      namespace: argo
       name: in-cluster
     syncPolicy:
       automated:
@@ -105,7 +124,7 @@ centralDashboard:
   spec:
     project: default
     source:
-      path: apps/centraldashboard/overlays/oauth2-proxy
+      path: apps/centraldashboard/overlays/oauth2-proxy.yaml
       repoURL: https://github.com/kubeflow/manifests
       targetRevision: master
     destination:
