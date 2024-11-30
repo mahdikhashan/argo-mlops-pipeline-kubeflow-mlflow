@@ -128,7 +128,7 @@ kubeflowNamespace:
       repoURL: https://github.com/kubeflow/manifests
       targetRevision: master
     destination:
-      namespace: kubeflow
+      namespace: argocd
       name: in-cluster
     syncPolicy:
       automated:
