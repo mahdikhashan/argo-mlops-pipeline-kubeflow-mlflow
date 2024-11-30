@@ -317,3 +317,63 @@ networkPolicies:
         prune: false
       syncOptions:
         - ServerSideApply=true
+
+kubeflowPipelines:
+  enabled: true
+  spec:
+    project: default
+    source:
+      path: apps/pipeline/upstream/env/cert-manager/platform-agnostic-multi-user
+      repoURL: https://github.com/kubeflow/manifests
+      targetRevision: master
+      kustomize:
+        patches:
+          - target:
+              kind: Deployment
+              name: ml-pipeline
+              namespace: kubeflow
+            patch: |-
+              - op: replace
+                path: /spec/template/spec/containers/0/resources/requests/cpu
+                value: 10m
+          - target:
+              kind: Deployment
+              name: ml-pipeline-persistenceagent
+              namespace: kubeflow
+            patch: |-
+              - op: replace
+                path: /spec/template/spec/containers/0/resources/requests/cpu
+                value: 10m
+          - target:
+              kind: Deployment
+              name: workflow-controller
+              namespace: kubeflow
+            patch: |-
+              - op: replace
+                path: /spec/template/spec/containers/0/resources/requests/cpu
+                value: 10m
+          - target:
+              kind: Deployment
+              name: mysql
+              namespace: kubeflow
+            patch: |-
+              - op: replace
+                path: /spec/template/spec/containers/0/resources/requests/cpu
+                value: 10m
+          - target:
+              kind: StatefulSet
+              name: metacontroller
+              namespace: kubeflow
+            patch: |-
+              - op: replace
+                path: /spec/template/spec/containers/0/resources/requests/cpu
+                value: 10m
+    destination:
+      namespace: argocd
+      name: in-cluster
+    syncPolicy:
+      automated:
+        selfHeal: true
+        prune: false
+      syncOptions:
+        - ServerSideApply=true
