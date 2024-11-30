@@ -1,0 +1,15 @@
+apiVersion: v2
+name: mlflow
+description: A Helm chart to deploy MLflow with MinIO and PostgreSQL
+version: 0.1.0
+
+dependencies:
+  - name: postgresql
+    version: 12.0.0
+    repository: https://charts.bitnami.com/bitnami
+  - name: minio
+    version: 11.0.0
+    repository: https://charts.bitnami.com/bitnami
+  - name: mlflow
+    version: 0.7.19
+    repository: https://community-charts.github.io/helm-charts
