@@ -1,6 +1,0 @@
-# since kubeflow uses its own namespace, this namespace is redundant
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: training-ns
-  
