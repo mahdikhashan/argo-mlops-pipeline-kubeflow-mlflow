@@ -77,7 +77,6 @@ istioInstall:
       automated:
         prune: false
       syncOptions:
-        - CreateNamespace=true
         - ServerSideApply=true
 
 oauth2Proxy:
