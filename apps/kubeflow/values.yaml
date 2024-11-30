@@ -321,3 +321,21 @@ volumesWebApp:
         prune: false
       syncOptions:
         - ServerSideApply=true
+
+profiles:
+  enabled: true
+  spec:
+    project: default
+    source:
+      path: apps/profiles/upstream/overlays/kubeflow
+      repoURL: https://github.com/kubeflow/manifests
+      targetRevision: master
+    destination:
+      namespace: argocd
+      name: in-cluster
+    syncPolicy:
+      automated:
+        selfHeal: true
+        prune: false
+      syncOptions:
+        - ServerSideApply=true
