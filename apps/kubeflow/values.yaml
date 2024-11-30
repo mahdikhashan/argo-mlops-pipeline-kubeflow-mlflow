@@ -86,7 +86,7 @@ oauth2Proxy:
   spec:
     project: default
     source:
-      path: common/oauth2-proxy/overlays/m2m-dex-only
+      path: common/oauth2-proxy/overlays/m2m-dex-only/
       repoURL: https://github.com/kubeflow/manifests
       targetRevision: master
     destination:
@@ -124,7 +124,7 @@ centralDashboard:
   spec:
     project: default
     source:
-      path: apps/centraldashboard/overlays/oauth2-proxy
+      path: apps/centraldashboard/overlays/
       repoURL: https://github.com/kubeflow/manifests
       targetRevision: master
     destination:
