@@ -23,4 +23,10 @@ certManagerKubeflowIssuer:
   enabled: true
   spec:
     selfSigned: {}
-
+  kustomize:
+    labels:
+      - includeSelectors: true
+        pairs:
+          app.kubernetes.io/component: cert-manager
+          app.kubernetes.io/name: cert-manager
+          kustomize.component: cert-manager
