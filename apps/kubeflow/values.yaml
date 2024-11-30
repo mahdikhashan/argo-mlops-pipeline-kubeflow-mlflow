@@ -100,6 +100,25 @@ oauth2Proxy:
         - CreateNamespace=true
         - ServerSideApply=true
 
+dex:
+  enabled: true
+  spec:
+    project: default
+    source:
+      path: common/dex/overlays/oauth2-proxy
+      repoURL: https://github.com/kubeflow/manifests
+      targetRevision: master
+    destination:
+      namespace: argocd
+      name: in-cluster
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+      syncOptions:
+        - CreateNamespace=true
+        - ServerSideApply=true
+
 kubeflowNamespace:
   enabled: true
   spec:
