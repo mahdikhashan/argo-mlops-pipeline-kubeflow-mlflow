@@ -215,3 +215,22 @@ admissionWebhook:
       syncOptions:
         - CreateNamespace=true
         - ServerSideApply=true
+
+kubeflowRoles:
+  enabled: true
+  spec:
+    project: default
+    source:
+      path: common/kubeflow-roles/base
+      repoURL: https://github.com/kubeflow/manifests
+      targetRevision: master
+    destination:
+      namespace: argocd
+      name: in-cluster
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+      syncOptions:
+        - ServerSideApply=true
+        - CreateNamespace=true
