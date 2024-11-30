@@ -84,7 +84,7 @@ centralDashboard:
       name: in-cluster
     syncPolicy:
       automated:
-        prune: false
+        prune: true
       syncOptions:
         - CreateNamespace=true
         - ServerSideApply=true
