@@ -24,6 +24,63 @@ certManagerKubeflowIssuer:
   spec:
     selfSigned: { }
 
+istioBase:
+  enabled: true
+  spec:
+    project: default
+    source:
+      path: common/istio-1-23/istio-crds/base
+      repoURL: https://github.com/kubeflow/manifests
+      targetRevision: master
+    destination:
+      namespace: istio-system
+      name: in-cluster
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+      syncOptions:
+        - CreateNamespace=true
+        - ServerSideApply=true
+
+istioNamespace:
+  enabled: true
+  spec:
+    project: default
+    source:
+      path: common/istio-1-23/istio-namespace/base
+      repoURL: https://github.com/kubeflow/manifests
+      targetRevision: master
+    destination:
+      namespace: argo
+      name: in-cluster
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+      syncOptions:
+        - CreateNamespace=true
+        - ServerSideApply=true
+
+istioInstall:
+  enabled: true
+  spec:
+    project: default
+    source:
+      path: common/istio-1-23/istio-install/overlays/oauth2-proxy
+      repoURL: https://github.com/kubeflow/manifests
+      targetRevision: master
+    destination:
+      namespace: istio-system
+      name: in-cluster
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+      syncOptions:
+        - CreateNamespace=true
+        - ServerSideApply=true
+
 kubeflowNamespace:
   enabled: true
   spec:
