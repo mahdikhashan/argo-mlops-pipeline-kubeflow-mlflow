@@ -1,3 +1,5 @@
+namespace: mlflow
+
 postgresql:
   auth:
     username: postgres
@@ -10,6 +12,8 @@ minio:
     rootPassword: minioadmin
 
 mlflow:
+  global:
+    namespace: mlflow
   backendStore:
     databaseMigration: true
     postgres:
