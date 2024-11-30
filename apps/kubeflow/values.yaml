@@ -124,7 +124,7 @@ centralDashboard:
   spec:
     project: default
     source:
-      path: apps/centraldashboard/overlays/
+      path: apps/centraldashboard/overlays/oauth2-proxy
       repoURL: https://github.com/kubeflow/manifests
       targetRevision: master
     destination:
