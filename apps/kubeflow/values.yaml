@@ -285,3 +285,21 @@ jupyterWebApp:
         prune: false
       syncOptions:
         - ServerSideApply=true
+
+pvcViewerController:
+  enabled: true
+  spec:
+    project: default
+    source:
+      path: apps/pvcviewer-controller/upstream/default
+      repoURL: https://github.com/kubeflow/manifests
+      targetRevision: master
+    destination:
+      namespace: argocd
+      name: in-cluster
+    syncPolicy:
+      automated:
+        selfHeal: true
+        prune: false
+      syncOptions:
+        - ServerSideApply=true
