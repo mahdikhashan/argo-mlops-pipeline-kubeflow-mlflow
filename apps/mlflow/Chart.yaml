@@ -10,6 +10,3 @@ dependencies:
   - name: minio
     version: 14.8.5
     repository: https://charts.bitnami.com/bitnami
-  - name: mlflow
-    version: 0.7.19
-    repository: https://community-charts.github.io/helm-charts
