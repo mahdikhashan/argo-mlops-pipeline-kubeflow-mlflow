@@ -33,7 +33,7 @@ kubeflowNamespace:
       repoURL: https://github.com/kubeflow/manifests
       targetRevision: master
     destination:
-      namespace: argocd
+      namespace: kubeflow-namespace
       name: in-cluster
     syncPolicy:
       automated:
