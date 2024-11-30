@@ -90,7 +90,7 @@ oauth2Proxy:
       repoURL: https://github.com/kubeflow/manifests
       targetRevision: master
     destination:
-      namespace: argo
+      namespace: argocd
       name: in-cluster
     syncPolicy:
       automated:
