@@ -1,3 +1,5 @@
 # Kubeflow Helm chart
 
-TODO
+### Dex:
+    - username: user@example.com
+    - password: 12341234

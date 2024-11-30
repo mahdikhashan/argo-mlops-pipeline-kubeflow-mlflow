@@ -76,3 +76,7 @@ stop-local-argocd:
 .PHONY: get-grafana-password
 .get-grafana-password:
 	kubectl get secret --namespace monitoring grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+
+.PHONY: portforward-app
+.portforward-app:
+	kubectl port-forward svc/istio-ingressgateway -n istio-system 8080:80
