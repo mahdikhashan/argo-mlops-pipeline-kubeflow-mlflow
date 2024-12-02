@@ -18,4 +18,4 @@ Key components include:
 We are still deciding on the model, dataset, and other specifics.
 Your early feedback will help guide further development.
 
-![Initial Illustration of the proposed architecture](https://github.com/negahibr/CloudComputing/blob/main/drawings/YoloV5_mlops_arch_draft_v1.png?raw=true)
+![Initial Illustration of the proposed architecture](https://github.com/mahdikhashan/jku-cloud-computing/blob/main/docs/drawings/YoloV5_mlops_arch_draft_v1.png?raw=true)
