@@ -26,6 +26,8 @@ I faced multiple challenges. I added multiple GitHub issues for each during diff
 Additionally, I learned to use variety of tools, concepts and solution practices for implementing this project which I had never tried before like Bash, Makefiles
 , ArgoCD (GitOps), Kubernetes, Helm, Kubeflow, MLFlow and Streamlit. Foreach I have a few learning examples that comes in following paragraphs:
 
+#### Challenges while learning about Kubeflow: TODO
+
 TODO
 
 ### References: 
@@ -52,6 +54,7 @@ Articles and Docs:
 16. https://www.kubeflow.org/docs/components/training/reference/distributed-training/
 17. https://anjuls.medium.com/machine-learning-orchestration-on-kubernetes-using-kubeflow-2069767e20ca
 18. https://fmind.medium.com/how-to-install-kubeflow-on-apple-silicon-3565db8773f3
+19. https://medium.com/@vinayakshanawad/build-an-ml-pipeline-part-2-model-registration-and-serving-with-mlflow-and-kserve-a2158337e077
 
 Books:
 1. Distributed Machine Learning Patterns by Yuan Tang (https://www.goodreads.com/book/show/59113140-distributed-machine-learning-patterns)
@@ -60,6 +63,7 @@ Books:
 
 Videos:
 1. Production-Ready AI Platform on Kubernetes - Yuan Tang, Red Hat (https://www.youtube.com/watch?v=_RthQ01bwU8)
+2. https://www.youtube.com/watch?v=MeU5_k9ssrs
 
 Code Samples:
 1. https://github.com/kubeflow/examples/tree/master/pytorch_mnist
