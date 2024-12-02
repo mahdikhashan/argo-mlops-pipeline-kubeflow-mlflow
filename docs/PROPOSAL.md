@@ -29,6 +29,8 @@ cloud provider or local infrastructure, depending on further investigation.
 9. Set up Kubeflow on a cluster
 10. Decide on kubeflow component usage
 11. Implement serving and training components of architecture
+12. Implement custom pipelines 
+13. Implement custom containers (docker images with packages for Data Scientists or MLEs, like different version of Numpy or PyTorch)
 
 ### Responsibilities 
 
@@ -40,6 +42,6 @@ onboard one more member on the way. Still the member onboarding process is to du
 ### Demo flow
 
 The Demo flow would be serving of the trained model (MNIST with CNN Architecture with different hyperparameters), registering it in the MLFlow model registery on an object storage. Then serving it through a REST API and consuming the API with 
-Streamlit UI by being able to select different registered model and end-user (Machine Learning Engineers or Data Scientist) drawing there test illustration on a canvas component.
+Streamlit UI by being able to select different registered model and end-user (Machine Learning Engineers or Data Scientist) drawing there test illustration on a canvas component. Also I'm trying to find a way to have enough resource to explore the capability of Kubeflow to provision resources in Model development or pipeline design phase.
 
 ![Initial Illustration of the proposed architecture](https://github.com/mahdikhashan/jku-cloud-computing/blob/main/docs/drawings/YoloV5_mlops_arch_draft_v1.png?raw=true)
