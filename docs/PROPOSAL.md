@@ -29,7 +29,7 @@ cloud provider or local infrastructure, depending on further investigation.
 9. Set up Kubeflow on a cluster
 10. Decide on kubeflow component usage
 11. Implement serving and training components of architecture
-12. Implement custom pipelines 
+12. Implement custom pipelines with distributed training, data processing and more
 13. Implement custom containers (docker images with packages for Data Scientists or MLEs, like different version of Numpy or PyTorch)
 
 ### Responsibilities 
