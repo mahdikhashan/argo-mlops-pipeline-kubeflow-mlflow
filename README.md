@@ -2,9 +2,7 @@
 
 ### MLOps Pipeline for Distributed Model Training with Kubeflow
 
-Team Members: 
-1. Mahdi Khashan (K12341541)
-2. XXX
+
 
 ## Structure, language, and illustrations 
 
