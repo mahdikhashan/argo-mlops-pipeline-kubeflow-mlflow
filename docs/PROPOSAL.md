@@ -18,7 +18,7 @@ cloud provider or local infrastructure, depending on further investigation.
 
 ### Milestones
 
-1. Set up a Kubernetes Cluster on Local (Mac with Silicon CPU)
+1. Set up and experiment with a Kubernetes Cluster on Local (Mac with Silicon CPU)
 2. Run a couple of Kubeflow components on Local
 3. Decide on the Computation budget (Resources, Number of nodes, Training time)
 4. Decide on ML model and methods
