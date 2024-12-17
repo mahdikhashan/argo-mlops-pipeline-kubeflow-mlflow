@@ -1,33 +1,18 @@
-namespace: mlflow
-postgresql:
-  auth:
-    username: postgres
-    password: postgres
-    database: postgres
-minio:
-  auth:
-    rootUser: minioadmin
-    rootPassword: minioadmin
-
-#mlflow:
-#  global:
-#    namespace: mlflow
-#  backendStore:
-#    databaseMigration: true
-#    postgres:
-#      enabled: true
-#      host: postgresql.default.svc.cluster.local
-#      port: 5432
-#      database: postgres
-#      user: postgres
-#      password: postgres
-#  artifactRoot:
-#    s3:
-#      enabled: true
-#      bucket: mlflow
-#      awsAccessKeyId: minioadmin
-#      awsSecretAccessKey: minioadmin
-#  extraEnvVars:
-#    MLFLOW_S3_ENDPOINT_URL: http://minio.default.svc.cluster.local:9000
-#  serviceMonitor:
-#    enabled: true
+backendStore:
+  databaseConnectionCheck: true
+  mysql:
+    enabled: true
+    host: "mysql-instance1.cg034hpkmmjt.eu-central-1.rds.amazonaws.com"
+    port: 3306
+    database: "mlflow"
+    user: "mlflowuser"
+    password: "Pa33w0rd!"
+artifactRoot:
+  s3:
+    enabled: true
+    bucket: mlflow
+    awsAccessKeyId: minioadmin
+    awsSecretAccessKey: minioadmin
+    MLFLOW_S3_ENDPOINT_URL: http://minio-service:9000
+serviceMonitor:
+  enabled: true

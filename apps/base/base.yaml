@@ -28,6 +28,9 @@ spec:
     - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
       targetRevision: main
       path: apps/namespaces
+    - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
+      targetRevision: main
+      path: apps/mlflow
 #    - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
 #      targetRevision: main
 #      path: apps/mlflow
