@@ -66,8 +66,8 @@ do-cluster-get-nodes: debug
     done
 	kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 	kubectl wait --for=condition=ready pod --all -n argocd --timeout=600s
-	bash ./scripts/patch-argocd-to-loadbalancer.sh
-	bash ./scripts/echo-argocd-admin-ui-password.sh
+	bash ./scripts/patch-argocd.sh
+	bash ./scripts/argocd-password.sh
 
 .PHONY: install-base-argo-app
 .install-base-argo-app:
