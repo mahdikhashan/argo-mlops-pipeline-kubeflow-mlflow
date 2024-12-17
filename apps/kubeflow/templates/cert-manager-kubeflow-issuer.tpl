@@ -8,7 +8,7 @@ metadata:
     app.kubernetes.io/name: cert-manager
     kustomize.component: cert-manager
   annotations:
-    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-wave: "100"
 spec:
 {{ .Values.certManagerKubeflowIssuer.spec | toYaml | indent 2 }}
 {{- end -}}
