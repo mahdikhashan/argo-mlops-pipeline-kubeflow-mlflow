@@ -10,9 +10,8 @@ pkgs.mkShell {
       virtualenv venv
     fi
     source venv/bin/activate
-    pip install yamllint pre-commit
+    pip install pre-commit
     yamlfmt --version
-    // install pre-hooks
     pre-commit install
   '';
 }
