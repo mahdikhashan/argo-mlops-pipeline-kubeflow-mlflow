@@ -12,6 +12,10 @@ ARGOCD_PID:=argo-cd-pid.txt
 
 default: debug init-doctl do-create-cluster do-cluster-config do-cluster-get-nodes
 
+#.PHONY: lint
+#.lint:
+#	yamllint .
+
 debug:
 	echo CURRENT_DIR is ${CURRENT_DIR}
 	echo Using shell: $$SHELL
@@ -68,6 +72,12 @@ do-cluster-get-nodes: debug
 	kubectl wait --for=condition=ready pod --all -n argocd --timeout=600s
 	bash ./scripts/patch-argocd.sh
 	bash ./scripts/argocd-password.sh
+
+.stop-and-remove-argo:
+	TODO: add me
+
+.add-repositories:
+	bash ./scripts/add-bitnami-repo.sh
 
 .PHONY: install-base-argo-app
 .install-base-argo-app:
