@@ -1,3 +1,5 @@
+adminUser: admin
+adminPassword: admin
 dashboards:
   default:
     monitor-nodes:
