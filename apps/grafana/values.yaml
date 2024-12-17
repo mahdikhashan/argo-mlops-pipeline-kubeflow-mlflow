@@ -1,0 +1,6 @@
+dashboards:
+  default:
+    monitor-nodes:
+      gnetId: 315
+      revision: 3
+      datasource: Prometheus
