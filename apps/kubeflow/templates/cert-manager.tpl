@@ -1,13 +1,13 @@
-{{ if .Values.istioBase.enabled }}
+{{ if .Values.certManager.enabled -}}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: istio-base
+  name: cert-manager
   namespace: argocd
   annotations:
-    argocd.argoproj.io/sync-wave: "3"
+    argocd.argoproj.io/sync-wave: "2"
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-{{ .Values.istioBase.spec | toYaml | indent 2}}
+{{ .Values.certManager.spec | toYaml | indent 2}}
 {{- end -}}

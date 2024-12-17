@@ -1,11 +1,9 @@
 namespace: mlflow
-
 postgresql:
   auth:
     username: postgres
     password: postgres
     database: postgres
-
 minio:
   auth:
     rootUser: minioadmin

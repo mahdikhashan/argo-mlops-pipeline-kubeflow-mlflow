@@ -1,5 +1,4 @@
 debug: false
-
 certManager:
   enabled: true
   spec:
@@ -18,12 +17,10 @@ certManager:
       syncOptions:
         - CreateNamespace=true
         - ServerSideApply=true
-
 certManagerKubeflowIssuer:
   enabled: true
   spec:
-    selfSigned: { }
-
+    selfSigned: {}
 istioBase:
   enabled: true
   spec:
@@ -40,7 +37,6 @@ istioBase:
         prune: false
       syncOptions:
         - ServerSideApply=true
-
 #istioNamespace:
 #  enabled: true
 #  spec:
@@ -59,7 +55,6 @@ istioBase:
 #      syncOptions:
 #        - CreateNamespace=true
 #        - ServerSideApply=true
-
 istioInstall:
   enabled: true
   spec:
@@ -76,7 +71,6 @@ istioInstall:
         prune: false
       syncOptions:
         - ServerSideApply=true
-
 oauth2Proxy:
   enabled: true
   spec:
@@ -95,7 +89,6 @@ oauth2Proxy:
       syncOptions:
         - CreateNamespace=true
         - ServerSideApply=true
-
 dex:
   enabled: true
   spec:
@@ -114,7 +107,6 @@ dex:
       syncOptions:
         - CreateNamespace=true
         - ServerSideApply=true
-
 centralDashboard:
   enabled: true
   spec:
@@ -133,7 +125,6 @@ centralDashboard:
       syncOptions:
         - CreateNamespace=true
         - ServerSideApply=true
-
 admissionWebhook:
   enabled: true
   spec:
@@ -152,7 +143,6 @@ admissionWebhook:
       syncOptions:
         - CreateNamespace=true
         - ServerSideApply=true
-
 istioResources:
   enabled: true
   spec:
@@ -171,7 +161,6 @@ istioResources:
       syncOptions:
         - CreateNamespace=true
         - ServerSideApply=true
-
 kubeflowRoles:
   enabled: true
   spec:
@@ -190,7 +179,6 @@ kubeflowRoles:
       syncOptions:
         - ServerSideApply=true
         - CreateNamespace=true
-
 exampleProfile:
   enabled: true
   spec:
@@ -209,7 +197,6 @@ exampleProfile:
       syncOptions:
         - CreateNamespace=true
         - ServerSideApply=true
-
 notebookController:
   enabled: true
   spec:
@@ -227,7 +214,6 @@ notebookController:
         prune: false
       syncOptions:
         - ServerSideApply=true
-
 jupyterWebApp:
   enabled: true
   spec:
@@ -245,7 +231,6 @@ jupyterWebApp:
         prune: false
       syncOptions:
         - ServerSideApply=true
-
 pvcViewerController:
   enabled: true
   spec:
@@ -263,7 +248,6 @@ pvcViewerController:
         prune: false
       syncOptions:
         - ServerSideApply=true
-
 volumesWebApp:
   enabled: true
   spec:
@@ -281,7 +265,6 @@ volumesWebApp:
         prune: false
       syncOptions:
         - ServerSideApply=true
-
 profiles:
   enabled: true
   spec:
@@ -299,7 +282,6 @@ profiles:
         prune: false
       syncOptions:
         - ServerSideApply=true
-
 networkPolicies:
   enabled: true
   spec:
@@ -317,7 +299,6 @@ networkPolicies:
         prune: false
       syncOptions:
         - ServerSideApply=true
-
 kubeflowPipelines:
   enabled: true
   spec:

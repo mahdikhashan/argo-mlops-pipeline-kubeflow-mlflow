@@ -27,4 +27,7 @@ spec:
       path: apps/grafana
     - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
       targetRevision: main
-      path: apps/mlflow
+      path: apps/namespaces
+#    - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
+#      targetRevision: main
+#      path: apps/mlflow

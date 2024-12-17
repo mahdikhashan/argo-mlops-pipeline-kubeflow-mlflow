@@ -10,5 +10,5 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "1"
 spec:
-  {{ .Values.certManagerKubeflowIssuer.spec | toYaml | indent 2 }}
+{{ .Values.certManagerKubeflowIssuer.spec | toYaml | indent 2 }}
 {{- end -}}

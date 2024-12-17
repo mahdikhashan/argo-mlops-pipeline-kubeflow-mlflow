@@ -1,13 +1,13 @@
-{{ if .Values.oauth2Proxy.enabled -}}
+{{ if .Values.istioBase.enabled }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: oauth2-proxy
+  name: istio-base
   namespace: argocd
   annotations:
-    argocd.argoproj.io/sync-wave: "9"
+    argocd.argoproj.io/sync-wave: "3"
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-{{ .Values.oauth2Proxy.spec | toYaml | indent 2 }}
+{{ .Values.istioBase.spec | toYaml | indent 2}}
 {{- end -}}

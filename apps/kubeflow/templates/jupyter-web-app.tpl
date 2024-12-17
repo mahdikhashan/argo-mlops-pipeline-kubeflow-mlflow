@@ -1,13 +1,13 @@
-{{ if .Values.volumesWebApp.enabled }}
+{{- if .Values.jupyterWebApp.enabled }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: volumes-web-app
+  name: jupyter-web-app
   namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "100"
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-{{ .Values.volumesWebApp.spec | toYaml | indent 2 }}
-{{ end }}
+{{ .Values.jupyterWebApp.spec | toYaml | indent 2 }}
+{{- end }}

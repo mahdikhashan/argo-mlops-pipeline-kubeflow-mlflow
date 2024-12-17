@@ -20,9 +20,3 @@ spec:
     - path: apps/base
       repoURL: https://github.com/mahdikhashan/jku-cloud-computing
       targetRevision: main
-    - path: namespaces
-      repoURL: https://github.com/mahdikhashan/jku-cloud-computing
-      targetRevision: main
-    - path: repositories
-      repoURL: https://github.com/mahdikhashan/jku-cloud-computing
-      targetRevision: main
