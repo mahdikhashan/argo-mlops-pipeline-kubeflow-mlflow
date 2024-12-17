@@ -63,7 +63,7 @@ do-cluster-get-nodes: debug
 
 .PHONY: install-argo
 .install-argo:
-	kubectl apply -f ./namespaces/argocd.yaml
+	kubectl apply -f ./apps/namespaces/argocd.yaml
 	@while ! kubectl get namespace argocd &>/dev/null; do \
       		echo "Waiting for namespace 'argocd' to be created..."; \
             sleep 1; \
@@ -74,7 +74,9 @@ do-cluster-get-nodes: debug
 	bash ./scripts/argocd-password.sh
 
 .stop-and-remove-argo:
-	TODO: add me
+	kubectl delete applications --all -n argocd --ignore-not-found
+	kubectl delete namespace argocd --force --grace-period=0 --ignore-not-found
+	kubectl delete all -l app.kubernetes.io/part-of=argocd --all-namespaces --ignore-not-found
 
 .add-repositories:
 	bash ./scripts/add-bitnami-repo.sh
