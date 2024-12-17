@@ -10,7 +10,7 @@ ARGOCD_PORT:=8080
 ARGOCD_PORTFORWARD_LOG:=portforward.log
 ARGOCD_PID:=argo-cd-pid.txt
 
-all: debug
+default: debug init-doctl do-create-cluster do-cluster-config do-cluster-get-nodes
 
 debug:
 	echo CURRENT_DIR is ${CURRENT_DIR}
@@ -30,32 +30,32 @@ do-cluster-config: debug
 do-cluster-get-nodes: debug
 	kubectl --kubeconfig=/Users/mahdikhashan/.kube/config get nodes
 
-# remove cluster, namespace and all others here
-.PHONY: clean
-clean-local: clean-debug
-	kubectl delete namespace ${NAMESPACE} || true
-	. ./cluster/setup.sh && drop_cluster $(CLUSTER_NAME)
+## remove cluster, namespace and all others here
+#.PHONY: clean
+#clean-local: clean-debug
+#	kubectl delete namespace ${NAMESPACE} || true
+#	. ./cluster/setup.sh && drop_cluster $(CLUSTER_NAME)
 
-.PHONY: start-local
-start-local: clean
-	bash k3d-version.sh || true
-	. ./cluster/setup.sh && create_cluster $(CLUSTER_NAME)
-	@if kubectl config use-context 'k3d-$(CLUSTER_NAME)' &>/dev/null && kubectl config current-context | grep -q 'k3d-$(CLUSTER_NAME)'; then echo 'switched to cluster $(CLUSTER_NAME).'; fi
-	kubectl create namespace ${NAMESPACE}
+#.PHONY: start-local
+#start-local: clean
+#	bash k3d-version.sh || true
+#	. ./cluster/setup.sh && create_cluster $(CLUSTER_NAME)
+#	@if kubectl config use-context 'k3d-$(CLUSTER_NAME)' &>/dev/null && kubectl config current-context | grep -q 'k3d-$(CLUSTER_NAME)'; then echo 'switched to cluster $(CLUSTER_NAME).'; fi
+#	kubectl create namespace ${NAMESPACE}
 
-.PHONY: start-local-argo
-start-local-argo: start-local
-	. argocd.sh && apply ${NAMESPACE}
-	. argocd.sh && portforward ${NAMESPACE} ${ARGOCD_PORT} ${ARGOCD_PORTFORWARD_LOG} ${ARGOCD_PID}
-	. argocd.sh && ui_admin_password ${NAMESPACE}
+#.PHONY: start-local-argo
+#start-local-argo: start-local
+#	. argocd.sh && apply ${NAMESPACE}
+#	. argocd.sh && portforward ${NAMESPACE} ${ARGOCD_PORT} ${ARGOCD_PORTFORWARD_LOG} ${ARGOCD_PID}
+#	. argocd.sh && ui_admin_password ${NAMESPACE}
 
-.PHONY: stop-local-argocd
-stop-local-argocd:
-	@pgrep -f "kubectl port-forward" | xargs kill -9
+#.PHONY: stop-local-argocd
+#stop-local-argocd:
+#	@pgrep -f "kubectl port-forward" | xargs kill -9
 
-.PHONY: show-argocd-password
-.show-argocd-password:
-	. argocd.sh && ui_admin_password ${NAMESPACE}
+#.PHONY: show-argocd-password
+#.show-argocd-password:
+#	. argocd.sh && ui_admin_password ${NAMESPACE}
 
 .PHONY: install-argo
 .install-argo:
