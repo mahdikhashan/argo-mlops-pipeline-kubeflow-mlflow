@@ -1,11 +1,11 @@
 - [x] add monitoring of resources (like storage, CPU and RAM)
+- [x] add kubeflow (find a way)
+- [x] patch argo to use load-balancer
+- [x] patch bitnami repository 
 - [] add MLFlow app
 - [x] add object storage or use a free one
 - [] add ui (streamlit) from another repo
 - [] serve existing model
-- [x] add kubeflow (find a way)
-- [] implement a pipeline
-- [] register model and serve training result
 - [] implement health check for inference services
-- [x] patch argo to use load-balancer
-- [x] patch bitnami repository 
+- [] register model and serve training result
+- [] implement a pipeline
