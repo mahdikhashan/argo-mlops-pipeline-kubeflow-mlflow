@@ -2,7 +2,7 @@ backendStore:
   databaseConnectionCheck: true
   postgres:
     enabled: true
-    host: "postgresql-postgresql.registry.svc.cluster.local"
+    host: "postgresql.registry.svc.cluster.local"
     port: 5432
     database: "mlflow_db"
     user: "mlflow_user"
@@ -13,6 +13,6 @@ artifactRoot:
     bucket: mlflow
     awsAccessKeyId: admin
     awsSecretAccessKey: admin
-    MLFLOW_S3_ENDPOINT_URL: http://minio.minio.svc.cluster.local:9000
+    MLFLOW_S3_ENDPOINT_URL: minio.registry.svc.cluster.local
 serviceMonitor:
   enabled: true
