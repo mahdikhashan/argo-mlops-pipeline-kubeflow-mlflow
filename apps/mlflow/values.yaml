@@ -2,7 +2,7 @@ backendStore:
   databaseConnectionCheck: true
   postgres:
     enabled: true
-    host: "mysql-instance1.cg034hpkmmjt.eu-central-1.rds.amazonaws.com"
+    host: "postgresql-postgresql.registry.svc.cluster.local"
     port: 5432
     database: "mlflow_db"
     user: "mlflow_user"
