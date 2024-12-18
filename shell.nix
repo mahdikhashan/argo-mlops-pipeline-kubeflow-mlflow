@@ -4,6 +4,7 @@ pkgs.mkShell {
     pkgs.python3Packages.virtualenv
     pkgs.yamlfmt
     pkgs.kubectx
+    pkgs.minio-client
   ];
 
   shellHook = ''
@@ -13,6 +14,7 @@ pkgs.mkShell {
     source venv/bin/activate
     pip install pre-commit
     yamlfmt --version
+    mc --version
     pre-commit install
   '';
 }
