@@ -3,6 +3,7 @@ pkgs.mkShell {
   buildInputs = [
     pkgs.python3Packages.virtualenv
     pkgs.yamlfmt
+    pkgs.kubectx
   ];
 
   shellHook = ''
