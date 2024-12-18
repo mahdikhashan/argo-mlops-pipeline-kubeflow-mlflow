@@ -1,18 +1,18 @@
 backendStore:
   databaseConnectionCheck: true
-  mysql:
+  postgres:
     enabled: true
     host: "mysql-instance1.cg034hpkmmjt.eu-central-1.rds.amazonaws.com"
-    port: 3306
-    database: "mlflow"
-    user: "mlflowuser"
-    password: "Pa33w0rd!"
+    port: 5432
+    database: "mlflow_db"
+    user: "mlflow_user"
+    password: "mlflow_password"
 artifactRoot:
   s3:
     enabled: true
     bucket: mlflow
-    awsAccessKeyId: minioadmin
-    awsSecretAccessKey: minioadmin
-    MLFLOW_S3_ENDPOINT_URL: http://minio-service:9000
+    awsAccessKeyId: admin
+    awsSecretAccessKey: admin
+    MLFLOW_S3_ENDPOINT_URL: http://minio.minio.svc.cluster.local:9000
 serviceMonitor:
   enabled: true

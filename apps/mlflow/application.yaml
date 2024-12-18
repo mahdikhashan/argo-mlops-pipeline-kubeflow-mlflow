@@ -6,15 +6,32 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://community-charts.github.io/helm-charts
-    chart: community-charts/mlflow
-    targetRevision: 0.8.2
-    helm:
-      valueFiles:
-        - values.yaml
-  destination:
-    namespace: registery
-    server: https://kubernetes.default.svc
+    - repoURL: https://community-charts.github.io/helm-charts
+      chart: community-charts/mlflow
+      targetRevision: 0.8.2
+      helm:
+        valueFiles:
+          - values.yaml
+    - repoURL: https://charts.bitnami.com/bitnami
+      chart: bitnami/postgresql
+      targetRevision: 16.3.2
+      helm:
+        parameters:
+          - name: global.postgresql.auth.username
+            value: mlflow_user
+          - name: global.postgresql.auth.password
+            value: mlflow_password
+          - name: global.postgresql.auth.database
+            value: mlflow_db
+    - repoURL: https://charts.bitnami.com/bitnami
+      chart: bitnami/minio
+      targetRevision: 14.10.1
+      helm:
+        parameters:
+          - name: auth.rootUser
+            value: admin
+          - name: auth.rootPassword
+            value: admin
   syncPolicy:
     automated:
       prune: true
