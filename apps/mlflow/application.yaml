@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: mlflow
-  namespace: registery
+  namespace: registry
   annotations:
     argocd.argoproj.io/sync-wave: "300"
   finalizers:
@@ -11,33 +11,78 @@ spec:
   project: default
   destination:
     server: https://kubernetes.default.svc
+    namespace: registry
   source:
-    - repoURL: https://community-charts.github.io/helm-charts
-      chart: community-charts/mlflow
-      targetRevision: 0.8.2
-      helm:
-        valueFiles:
-          - values.yaml
-    - repoURL: https://charts.bitnami.com/bitnami
-      chart: bitnami/postgresql
-      targetRevision: 16.3.2
-      helm:
-        parameters:
-          - name: global.postgresql.auth.username
-            value: mlflow_user
-          - name: global.postgresql.auth.password
-            value: mlflow_password
-          - name: global.postgresql.auth.database
-            value: mlflow_db
-    - repoURL: https://charts.bitnami.com/bitnami
-      chart: bitnami/minio
-      targetRevision: 14.10.1
-      helm:
-        parameters:
-          - name: auth.rootUser
-            value: admin
-          - name: auth.rootPassword
-            value: admin
+    repoURL: https://community-charts.github.io/helm-charts
+    chart: community-charts/mlflow
+    targetRevision: 0.8.2
+    helm:
+      valueFiles:
+        - values.yaml
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: postgresql
+  namespace: registry
+  annotations:
+    argocd.argoproj.io/sync-wave: "200"
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: database
+  source:
+    repoURL: https://charts.bitnami.com/bitnami
+    chart: bitnami/postgresql
+    targetRevision: 16.3.2
+    helm:
+      parameters:
+        - name: global.postgresql.auth.username
+          value: mlflow_user
+        - name: global.postgresql.auth.password
+          value: mlflow_password
+        - name: global.postgresql.auth.database
+          value: mlflow_db
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: minio
+  namespace: registry
+  annotations:
+    argocd.argoproj.io/sync-wave: "200"
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: storage
+  source:
+    repoURL: https://charts.bitnami.com/bitnami
+    chart: bitnami/minio
+    targetRevision: 14.10.1
+    helm:
+      parameters:
+        - name: auth.rootUser
+          value: admin
+        - name: auth.rootPassword
+          value: admin
   syncPolicy:
     automated:
       prune: true
