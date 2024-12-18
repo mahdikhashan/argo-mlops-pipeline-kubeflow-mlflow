@@ -39,7 +39,7 @@ spec:
   project: default
   destination:
     server: https://kubernetes.default.svc
-    namespace: database
+    namespace: registry
   source:
     repoURL: https://charts.bitnami.com/bitnami
     chart: bitnami/postgresql
@@ -72,7 +72,7 @@ spec:
   project: default
   destination:
     server: https://kubernetes.default.svc
-    namespace: storage
+    namespace: registry
   source:
     repoURL: https://charts.bitnami.com/bitnami
     chart: bitnami/minio
