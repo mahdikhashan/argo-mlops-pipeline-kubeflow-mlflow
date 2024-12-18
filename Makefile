@@ -78,12 +78,20 @@ do-cluster-get-nodes: debug
 	kubectl delete namespace argocd --force --grace-period=0 --ignore-not-found
 	kubectl delete all -l app.kubernetes.io/part-of=argocd --all-namespaces --ignore-not-found
 
+.remove-load-balancers:
+	doctl compute lb list
+	#doctl compute load-balancer remove-droplets
+
 .add-repositories:
 	bash ./scripts/add-bitnami-repo.sh
+	bash ./scripts/add-minio-repo.sh
 
 .PHONY: install-base-argo-app
 .install-base-argo-app:
 	kubectl apply -f app.yaml
+
+.get-argocd-password:
+	bash ./scripts/argocd-password.sh
 
 .PHONY: get-grafana-password
 .get-grafana-password:
