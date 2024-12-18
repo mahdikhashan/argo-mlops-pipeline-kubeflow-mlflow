@@ -9,3 +9,5 @@
 - [] implement health check for inference services
 - [] register model and serve training result
 - [] implement a pipeline
+- [] wrap kubeflow argo applications with a unique app
+- [] deleted load-balancers when deleting argo
