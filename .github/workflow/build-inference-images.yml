@@ -1,9 +1,6 @@
 name: Build Inference Images
 on:
   push:
-    paths:
-      - inference/api/**
-      - inference/ui/**
     branches:
       - main
 jobs:
@@ -11,7 +8,7 @@ jobs:
     name: push docker image to dockerhub
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: login to dockerhub
         id: docker-hub
         env:
@@ -19,9 +16,14 @@ jobs:
           password: ${{secrets.DOCKERHUB_PASSWORD}}
         run: |
           docker login -u $username -p $password
-      - name: build the images
-        id: build-docker-images
-        run: "ls -la\n\ncd inference/api\n\necho \"building api image\" \n\ndocker build -t api-service .\n\ncd ..\ncd ui\n\necho \"building ui image\"\n\ndocker build -t ui-service .\n"
+      - name: Build API Image
+        run: |
+          cd inference/api
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/api-service:latest .
+      - name: Build UI Image
+        run: |
+          cd inference/ui
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/ui-service:latest .
       - name: push the images to docker hub
         id: push-docker-image
         run: |
