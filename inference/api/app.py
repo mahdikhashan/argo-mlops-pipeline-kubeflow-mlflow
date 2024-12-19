@@ -1,9 +1,14 @@
+import os
 import io
 from PIL import Image
 
 from flask import Flask, jsonify, request
+from healthcheck import HealthCheck
 
 app: Flask = Flask(__name__)
+
+health = HealthCheck()
+app.add_url_rule("/healthcheck", "healthcheck", view_func=lambda: health.run())
 
 import torch
 
@@ -14,7 +19,8 @@ import mlflow
 import mlflow.pytorch
 
 assert mlflow.__version__ >= "1.0.0"
-mlflow.set_tracking_uri("http://127.0.0.1:8090/")
+# TODO: it should be injected by env from docker
+mlflow.set_tracking_uri(os.getenv("MLFLOW_TRACKING_URI"))
 
 import torchvision.transforms as transforms
 
@@ -37,6 +43,7 @@ def predict():
         file = request.files["file"]
         img = Image.open(io.BytesIO(file.read()))
 
+        # TODO: it could be passed from env
         model_uri = "models:/mnist_mlp/latest"
         model = mlflow.pytorch.load_model(model_uri)
         model = model.to(device)
@@ -50,6 +57,10 @@ def predict():
 
         predicted_digit = torch.argmax(output, dim=1).item()
 
-        print(predicted_digit)
+        app.logger.info("predicted in successfully: %s", predicted_digit)
 
         return jsonify(predicted_digit)
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8000, debug=True)
