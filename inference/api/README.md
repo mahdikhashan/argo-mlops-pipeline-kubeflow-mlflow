@@ -12,3 +12,7 @@ docker build -t api-service .
 ```bash
 docker run -d -p 8000:8000 -e MLFLOW_TRACKING_URI=http://0.0.0.0:8090/ api-service:latest 
 ```
+
+#### envs
+
+1. MLFLOW_TRACKING_URI (should be set wrt to cluster dns)
