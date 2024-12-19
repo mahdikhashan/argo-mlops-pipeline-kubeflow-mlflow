@@ -16,11 +16,11 @@ jobs:
           password: ${{secrets.DOCKERHUB_PASSWORD}}
         run: |
           docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" -p "${{ secrets.DOCKERHUB_PASSWORD }}"
-      - name: Build API Image
+      - name: build api image
         run: |
           cd inference/api
           docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/api-service:latest .
-      - name: Build UI Image
+      - name: build ui image
         run: |
           cd inference/ui
           docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/ui-service:latest .
