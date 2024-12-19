@@ -12,7 +12,7 @@ app.add_url_rule("/healthcheck", "healthcheck", view_func=lambda: health.run())
 
 import torch
 
-assert torch.__version__ >= "2.0.0"
+assert torch.__version__ >= "2.2.0"
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 import mlflow
