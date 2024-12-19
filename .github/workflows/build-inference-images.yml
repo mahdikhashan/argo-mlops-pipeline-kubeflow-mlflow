@@ -1,6 +1,9 @@
 name: Build Inference Images
 on:
   push:
+    paths:
+      - inference/api/**
+      - inference/ui/**
     branches:
       - main
 jobs:
