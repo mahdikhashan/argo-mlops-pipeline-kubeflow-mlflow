@@ -30,7 +30,10 @@ spec:
       path: apps/namespaces
     - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
       targetRevision: main
-      path: apps/mlflow
+      path: apps/object-storage
+    - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
+      targetRevision: main
+      path: apps/nginx
 #    - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
 #      targetRevision: main
 #      path: apps/mlflow

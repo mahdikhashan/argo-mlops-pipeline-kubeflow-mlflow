@@ -1,6 +1,4 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: nginx-ns
-  labels:
-    app: nginx
+  name: ingress-namespace
