@@ -4,10 +4,11 @@
 - [x] patch bitnami repository 
 - [] add MLFlow app
 - [x] add object storage or use a free one
-- [] add ui (streamlit) from another repo
+- [x] add ui (streamlit) from another repo
 - [] serve existing model
-- [] implement health check for inference services
+- [x] implement health check for inference services
 - [] register model and serve training result
+- [x] gh action to build ui and api images
 - [] implement a pipeline
 - [] wrap kubeflow argo applications with a unique app
 - [] deleted load-balancers when deleting argo
