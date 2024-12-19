@@ -19,7 +19,6 @@ import mlflow
 import mlflow.pytorch
 
 assert mlflow.__version__ >= "1.0.0"
-# TODO: it should be injected by env from docker
 mlflow.set_tracking_uri(os.getenv("MLFLOW_TRACKING_URI"))
 
 import torchvision.transforms as transforms
@@ -37,6 +36,7 @@ def preprocess_image(image):
     return flat
 
 
+# TODO: capture exceptions for file
 @app.route("/predict", methods=["POST"])
 def predict():
     if request.method == "POST":
