@@ -10,8 +10,11 @@ spec:
     chart: grafana
     targetRevision: 8.6.4
     helm:
-      valueFiles:
-        - values.yaml
+      parameters:
+        - name: "server.rootUrl"
+          value: "%(protocol)s://%(domain)s/monitor"
+        - name: "server.serveFromSubPath"
+          value: "true"
   destination:
     namespace: monitoring
     server: https://kubernetes.default.svc
