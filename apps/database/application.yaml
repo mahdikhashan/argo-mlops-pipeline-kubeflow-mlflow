@@ -3,8 +3,6 @@ kind: Application
 metadata:
   name: database
   namespace: argocd
-  annotations:
-    argocd.argoproj.io/sync-wave: "1"
 spec:
   project: default
   destination:
@@ -13,10 +11,8 @@ spec:
   source:
     repoURL: https://charts.bitnami.com/bitnami
     chart: bitnami/postgresql
-    targetRevision: 16.3.2
+    targetRevision: 16.3.3
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
