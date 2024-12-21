@@ -10,8 +10,8 @@ spec:
     namespace: registry
   source:
     repoURL: https://charts.bitnami.com/bitnami
-    chart: minio
-    targetRevision: 14.10.1
+    chart: bitnami/minio
+    targetRevision: 14.10.3
   syncPolicy:
     automated:
       prune: true
