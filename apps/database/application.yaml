@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: minio
+  name: database
   namespace: registry
   annotations:
     argocd.argoproj.io/sync-wave: "200"
@@ -14,8 +14,8 @@ spec:
     namespace: registry
   source:
     repoURL: https://charts.bitnami.com/bitnami
-    chart: bitnami/minio
-    targetRevision: 14.10.1
+    chart: bitnami/postgresql
+    targetRevision: 16.3.2
   syncPolicy:
     automated:
       prune: true
