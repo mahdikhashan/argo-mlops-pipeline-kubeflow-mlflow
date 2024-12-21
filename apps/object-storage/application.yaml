@@ -3,10 +3,6 @@ kind: Application
 metadata:
   name: minio
   namespace: registry
-  annotations:
-    argocd.argoproj.io/sync-wave: "200"
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   destination:
@@ -14,11 +10,5 @@ spec:
     namespace: registry
   source:
     repoURL: https://charts.bitnami.com/bitnami
-    chart: bitnami/minio
-    targetRevision: 14.10.1
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
+    chart: minio
+    targetRevision: latest
