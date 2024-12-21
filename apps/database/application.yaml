@@ -4,9 +4,7 @@ metadata:
   name: database
   namespace: registry
   annotations:
-    argocd.argoproj.io/sync-wave: "200"
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   project: default
   destination:

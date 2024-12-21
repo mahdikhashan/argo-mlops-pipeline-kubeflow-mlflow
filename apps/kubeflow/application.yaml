@@ -1,20 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: minio
-  namespace: registry
+  name: kubeflow
+  namespace: kubeflow
 spec:
   project: default
+  source:
+    repoURL: https://github.com/mahdikhashan/kubeflow-helm-chart
+    targetRevision: main
+    path: chart
   destination:
     server: https://kubernetes.default.svc
-    namespace: registry
-  source:
-    repoURL: https://charts.bitnami.com/bitnami
-    chart: minio
-    targetRevision: 14.10.1
+    namespace: kubeflow
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
