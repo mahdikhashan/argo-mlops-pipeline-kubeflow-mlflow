@@ -31,9 +31,9 @@ spec:
     - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
       targetRevision: main
       path: apps/object-storage
-    - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
-      targetRevision: main
-      path: apps/nginx
+      #    - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
+      #      targetRevision: main
+      #      path: apps/nginx
     - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
       targetRevision: main
       path: apps/database
