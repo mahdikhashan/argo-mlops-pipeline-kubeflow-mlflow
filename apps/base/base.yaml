@@ -21,22 +21,22 @@ spec:
       path: apps/kubeflow
     - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
       targetRevision: main
-      path: apps/prometheus
+      path: apps/monitoring/prometheus
     - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
       targetRevision: main
-      path: apps/grafana
+      path: apps/monitoring/grafana
     - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
       targetRevision: main
       path: apps/namespaces
     - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
       targetRevision: main
-      path: apps/object-storage
+      path: apps/registry/object-storage
       #    - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
       #      targetRevision: main
       #      path: apps/nginx
     - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
       targetRevision: main
-      path: apps/database
+      path: apps/registry/database
 #    - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
 #      targetRevision: main
 #      path: apps/mlflow
