@@ -11,8 +11,8 @@ spec:
     server: https://kubernetes.default.svc
     namespace: registry
   source:
-    repoURL: https://charts.bitnami.com/bitnami
-    chart: bitnami/minio
+    repoURL: oci://registry-1.docker.io/bitnamicharts
+    chart: minio
     targetRevision: 14.10.3
   syncPolicy:
     automated:
