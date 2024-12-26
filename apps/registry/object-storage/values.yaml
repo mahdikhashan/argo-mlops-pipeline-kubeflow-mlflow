@@ -1,1 +1,7 @@
 debug: true
+defaultBuckets: "mlflow"
+ingress:
+  enabled: true
+auth:
+  rootUser: admin
+  rootPassword: admin
