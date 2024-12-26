@@ -63,7 +63,7 @@ do-cluster-get-nodes: debug
 
 .PHONY: install-argo
 .install-argo:
-	kubectl apply -f ./apps/namespaces/argocd.yaml
+	kubectl create namespace argocd
 	@while ! kubectl get namespace argocd &>/dev/null; do \
       		echo "Waiting for namespace 'argocd' to be created..."; \
             sleep 1; \
@@ -72,11 +72,23 @@ do-cluster-get-nodes: debug
 	kubectl wait --for=condition=ready pod --all -n argocd --timeout=600s
 	bash ./scripts/patch-argocd.sh
 	bash ./scripts/argocd-password.sh
+	kubectl apply -f ./setup/argocd-cm.yaml
+	kubectl apply -f ./setup/argocd-secret.yaml
+	kubectl apply -f ./setup/argocd-repositories.yaml
+
+.apply-argo-config:
+	kubectl apply -f ./setup/argocd-cm.yaml
+	kubectl apply -f ./setup/argocd-secret.yaml
+	kubectl apply -f ./setup/argocd-repositories.yaml
 
 .stop-and-remove-argo:
 	kubectl delete applications --all -n argocd --ignore-not-found
 	kubectl delete namespace argocd --force --grace-period=0 --ignore-not-found
 	kubectl delete all -l app.kubernetes.io/part-of=argocd --all-namespaces --ignore-not-found
+
+.clean-up-default-namespace:
+	kubectl get all --namespace=default
+	kubectl delete namespace default --force --grace-period=0 --ignore-not-found
 
 .remove-load-balancers:
 	doctl compute lb list
@@ -86,12 +98,18 @@ do-cluster-get-nodes: debug
 	bash ./scripts/add-bitnami-repo.sh
 	bash ./scripts/add-minio-repo.sh
 
+#.mlflow-object-storage-secret-setup:
+#	kubectl create secret generic SECRET_NAME --from-literal=root-user=USER --from-literal=root-password=PASSWORD --dry-run -o yaml | kubectl apply -f -
+
 .PHONY: install-base-argo-app
 .install-base-argo-app:
-	kubectl apply -f app.yaml
+	kubectl apply -f apps/base/base.yaml
 
 .get-argocd-password:
 	bash ./scripts/argocd-password.sh
+
+.update-mlflow-database-password:
+	kubectl create secret generic base-postgresql --from-literal=password=admin --from-literal=postgres-password=admin --dry-run -o yaml | kubectl apply -f -
 
 .PHONY: get-grafana-password
 .get-grafana-password:
