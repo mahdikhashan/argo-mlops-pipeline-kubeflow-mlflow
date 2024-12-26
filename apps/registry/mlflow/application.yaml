@@ -24,7 +24,7 @@ spec:
             port: 5432
             database: postgres
             user: postgres
-            password: DByDTDsiTs
+            password: F2T0rDQGCy
         artifactRoot:
           s3:
             enabled: true
