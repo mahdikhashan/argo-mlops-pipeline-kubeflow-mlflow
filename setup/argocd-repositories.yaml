@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: bitnami-packages-repo
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/secret-type: repository
+stringData:
+  url: 'https://charts.bitnami.com/bitnami'
+  name: 'bitnami'
+  type: 'helm'
