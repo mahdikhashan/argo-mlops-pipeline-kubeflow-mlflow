@@ -9,3 +9,15 @@ stringData:
   url: 'https://charts.bitnami.com/bitnami'
   name: 'bitnami'
   type: 'helm'
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mlflow-packages-repo
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/secret-type: repository
+stringData:
+  url: 'https://community-charts.github.io/helm-charts'
+  name: 'community-charts'
+  type: 'helm'

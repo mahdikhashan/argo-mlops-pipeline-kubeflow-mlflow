@@ -1,0 +1,7 @@
+name: mlflow-wrapper
+version: 0.0.1
+apiVersion: v2
+dependencies:
+  - name: mlflow
+    version: "0.9.1"
+    repository: "https://community-charts.github.io/helm-charts"
