@@ -13,7 +13,7 @@ backendStore:
       enabled: true
       bucket: mlflow
       awsAccessKeyId: admin
-      awsSecretAccessKey: admin
+      awsSecretAccessKey: TzvAFVv3Wu
   extraEnvVars:
     MLFLOW_S3_ENDPOINT_URL: base-minio.default.svc.cluster.local:9000
   serviceMonitor:
