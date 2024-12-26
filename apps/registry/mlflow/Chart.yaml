@@ -5,3 +5,4 @@ dependencies:
   - name: mlflow
     version: "0.9.1"
     repository: "https://community-charts.github.io/helm-charts"
+    namespace: "{{ .Values.namespace }}"
