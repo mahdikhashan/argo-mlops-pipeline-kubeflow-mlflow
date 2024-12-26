@@ -13,6 +13,8 @@ spec:
     repoURL: https://github.com/mahdikhashan/mlflow-helm-chart
     targetRevision: mlflow
     path: ./
+    valueFiles:
+      - values.yaml
     helm:
       values: |
         backendStore:
