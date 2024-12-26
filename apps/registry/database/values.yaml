@@ -1,1 +1,6 @@
-debug: true
+passwordUpdateJob:
+  enabled: true
+auth:
+  user: "admin"
+  postgresPassword: "admin"
+  password: "admin"
