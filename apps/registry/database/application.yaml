@@ -14,11 +14,11 @@ spec:
   project: default
   source:
     chart: postgresql
-    repoURL: 'https://charts.bitnami.com/bitnami'
+    repoURL: https://charts.bitnami.com/bitnami
     targetRevision: 16.3.4
     path: .
     helm:
-      releaseName: bitnami/postgresql
+      releaseName: postgresql
       valueFiles:
         - values.yaml
       ignoreMissingValueFiles: true
