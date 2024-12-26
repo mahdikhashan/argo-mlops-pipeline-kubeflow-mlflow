@@ -31,7 +31,8 @@ spec:
             bucket: mlflow
             awsAccessKeyId: admin
             awsSecretAccessKey: KsschhjzQa
-            MLFLOW_S3_ENDPOINT_URL: base-minio.default.svc.cluster.local
+        extraEnvVars:
+          MLFLOW_S3_ENDPOINT_URL: base-minio.default.svc.cluster.local:9000
         serviceMonitor:
           enabled: true
   destination:
