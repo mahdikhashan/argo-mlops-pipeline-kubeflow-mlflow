@@ -3,14 +3,33 @@ kind: Application
 metadata:
   name: database
   namespace: argocd
+  labels:
+    app.kubernetes.io/instance: mlflow-database
+  annotations:
+    # keep the database after base is deleted
+    argocd.argoproj.io/sync-options: Delete=false
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
+  source:
+    chart: bitnami/postgresql
+    repoURL: 'https://charts.bitnami.com/bitnami'
+    targetRevision: 16.3.3
+    helm:
+      releaseName: bitnami/postgresql
+      valueFiles:
+        - values.yaml
+      ignoreMissingValueFiles: true
   destination:
     server: https://kubernetes.default.svc
     namespace: registry
-  source:
-    repoURL: 'https://charts.bitnami.com/bitnami'
-    chart: bitnami/postgresql
-    targetRevision: 16.3.3
+info:
+  - description: 'Managed PostgreSQL database'
+    icon: 'https://bitnami.com/assets/stacks/postgresql/img/postgresql-stack-110x117.png'
+    displayName: 'PostgreSQL'
+    maintainers:
+      - name: Bitnami
+syncPolicy:
+  retry:
+    limit: 1
