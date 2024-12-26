@@ -13,7 +13,7 @@ spec:
             - sh
             - -c
             - |
-              until nc -z minio.default.svc.cluster.local 9000; do
+              until nc -z base-minio.default.svc.cluster.local 9000; do
                 echo "Waiting for MinIO to be ready...";
                 sleep 2;
               done
