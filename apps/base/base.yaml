@@ -11,26 +11,22 @@ spec:
     path: apps
   destination:
     server: https://kubernetes.default.svc
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
   sources:
-    - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
-      targetRevision: main
-      path: apps/kubeflow
-    - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
-      targetRevision: main
-      path: apps/monitoring/prometheus
-    - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
-      targetRevision: main
-      path: apps/monitoring/grafana
+    #    - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
+    #      targetRevision: main
+    #      path: apps/kubeflow
+    #    - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
+    #      targetRevision: main
+    #      path: apps/monitoring/prometheus
+    #    - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
+    #      targetRevision: main
+    #      path: apps/monitoring/grafana
     - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
       targetRevision: main
       path: apps/namespaces
-    - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
-      targetRevision: main
-      path: apps/registry/object-storage
+      #    - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
+      #      targetRevision: main
+      #      path: apps/registry/object-storage
       #    - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
       #      targetRevision: main
       #      path: apps/nginx
