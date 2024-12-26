@@ -13,9 +13,9 @@ metadata:
 spec:
   project: default
   source:
-    chart: bitnami/postgresql
+    chart: postgresql
     repoURL: 'https://charts.bitnami.com/bitnami'
-    targetRevision: 16.3.3
+    targetRevision: 16.3.4
     helm:
       releaseName: bitnami/postgresql
       valueFiles:
