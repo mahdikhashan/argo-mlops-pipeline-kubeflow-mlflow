@@ -1,18 +1,19 @@
 backendStore:
   databaseConnectionCheck: true
+  databaseMigration: true
   postgres:
     enabled: true
-    host: "postgresql.registry.svc.cluster.local"
+    host: base-postgresql.default.svc.cluster.local
     port: 5432
-    database: "mlflow_db"
-    user: "mlflow_user"
-    password: "mlflow_password"
+    database: postgres
+    user: postgres
+    password: DByDTDsiTs
 artifactRoot:
   s3:
     enabled: true
     bucket: mlflow
     awsAccessKeyId: admin
-    awsSecretAccessKey: admin
-    MLFLOW_S3_ENDPOINT_URL: minio.registry.svc.cluster.local
+    awsSecretAccessKey: KsschhjzQa
+    MLFLOW_S3_ENDPOINT_URL: base-minio.default.svc.cluster.local
 serviceMonitor:
   enabled: true
