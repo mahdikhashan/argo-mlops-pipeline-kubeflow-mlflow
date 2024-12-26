@@ -33,6 +33,6 @@ spec:
     - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
       targetRevision: main
       path: apps/registry/database
-#    - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
-#      targetRevision: main
-#      path: apps/mlflow
+    - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
+      targetRevision: main
+      path: apps/mlflow
