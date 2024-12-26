@@ -15,28 +15,6 @@ spec:
     path: ./
     valueFiles:
       - values.yaml
-    helm:
-      values: |
-        backendStore:
-          databaseConnectionCheck: true
-          databaseMigration: true
-          postgres:
-            enabled: true
-            host: base-postgresql.default.svc.cluster.local
-            port: 5432
-            database: postgres
-            user: postgres
-            password: admin
-        artifactRoot:
-          s3:
-            enabled: true
-            bucket: mlflow
-            awsAccessKeyId: admin
-            awsSecretAccessKey: KsschhjzQa
-        extraEnvVars:
-          MLFLOW_S3_ENDPOINT_URL: base-minio.default.svc.cluster.local:9000
-        serviceMonitor:
-          enabled: true
   destination:
     server: https://kubernetes.default.svc
     namespace: default
