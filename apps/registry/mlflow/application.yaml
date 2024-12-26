@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kubeflow
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/mahdikhashan/mlflow-helm-chart
+    targetRevision: mlflow
+    path: ./
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
