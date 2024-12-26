@@ -13,6 +13,27 @@ spec:
     repoURL: https://github.com/mahdikhashan/mlflow-helm-chart
     targetRevision: mlflow
     path: ./
+    helm:
+      values: |
+        backendStore: |
+          databaseConnectionCheck: true
+          databaseMigration: true
+          postgres:
+            enabled: true
+            host: base-postgresql.default.svc.cluster.local
+            port: 5432
+            database: postgres
+            user: postgres
+            password: DByDTDsiTs
+        artifactRoot:
+          s3:
+            enabled: true
+            bucket: mlflow
+            awsAccessKeyId: admin
+            awsSecretAccessKey: KsschhjzQa
+            MLFLOW_S3_ENDPOINT_URL: base-minio.default.svc.cluster.local
+        serviceMonitor:
+          enabled: true
   destination:
     server: https://kubernetes.default.svc
     namespace: default
