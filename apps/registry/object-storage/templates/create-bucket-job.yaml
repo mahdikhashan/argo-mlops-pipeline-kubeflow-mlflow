@@ -1,0 +1,40 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: create-mlflow-bucket
+spec:
+  template:
+    spec:
+      initContainers:
+        - name: wait-for-minio
+          image: busybox
+          command:
+            - sh
+            - -c
+            - |
+              until nc -z minio.default.svc.cluster.local 9000; do
+                echo "Waiting for MinIO to be ready...";
+                sleep 2;
+              done
+      containers:
+        - name: minio-client
+          image: minio/mc:latest
+          command:
+            - /bin/sh
+            - -c
+            - |
+              mc alias set myminio http://base-minio.default.svc.cluster.local:9000 $MINIO_ACCESS_KEY $MINIO_SECRET_KEY
+              mc mb myminio/mlflow
+          env:
+            - name: MINIO_SERVER_ROOT_USER
+              valueFrom:
+                secretKeyRef:
+                  name: base-minio
+                  key: root-user
+            - name: MINIO_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: base-minio
+                  key: root-password
+      restartPolicy: Never
+  backoffLimit: 4
