@@ -8,13 +8,13 @@ backendStore:
     database: postgres
     user: admin
     password: admin
-  artifactRoot:
-    s3:
-      enabled: true
-      bucket: mlflow
-      awsAccessKeyId: admin
-      awsSecretAccessKey: TzvAFVv3Wu
-  extraEnvVars:
-    MLFLOW_S3_ENDPOINT_URL: base-minio.default.svc.cluster.local:9000
-  serviceMonitor:
+artifactRoot:
+  s3:
     enabled: true
+    bucket: mlflow
+    awsAccessKeyId: admin
+    awsSecretAccessKey: TzvAFVv3Wu
+extraEnvVars:
+  MLFLOW_S3_ENDPOINT_URL: base-minio.default.svc.cluster.local:9000
+serviceMonitor:
+  enabled: true
