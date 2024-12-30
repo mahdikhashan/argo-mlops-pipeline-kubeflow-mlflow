@@ -3,6 +3,8 @@ pkgs.mkShell {
   buildInputs = [
     pkgs.python312
     pkgs.yamlfmt
+    pkgs.k9s
+    pkgs.kubectl
   ];
 
   shellHook = ''
