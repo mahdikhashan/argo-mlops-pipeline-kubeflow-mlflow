@@ -1,7 +1,0 @@
-name: mlflow-database-wrapper
-version: 0.0.1
-apiVersion: v2
-dependencies:
-  - name: postgresql
-    version: "16.3.4"
-    repository: "https://charts.bitnami.com/bitnami"
