@@ -81,8 +81,27 @@ make do-cluster-get-nodes
 right now we should have a working cluster with 2 nodes. to further check the running pods, use `k9s` to observe already running
 pods and other resources. 
 
-3. Install ArgoCD
-4. Install Apps
+#### 3. Install ArgoCD
+
+since i'm using ArgoCD, we have another command in the Makefile to install it, patch it to request a LoadBalancer and then 
+patch ArgoCD secret, custom repositories and secrets. 
+
+```bash
+make install-argo
+```
+
+this command return the public ip address of the ArgoCD and then we can use the credentials from [this](./docs/ARGO.md) file to login.
+
+#### 4. Install Apps
+
+to setup the apps (kubeflow, mlflow, monitoring and inference) on ArgoCD, use the following command:
+
+```bash
+make install-base-argo-app
+```
+
+it will install the base app of ArgoCD, and this app will install the rest (manual syncing is required - refer to [this](./docs/ARGO.md) doc). 
+
 5. Appends Configs
 6. Run Inference
 
