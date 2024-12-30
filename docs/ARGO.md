@@ -6,4 +6,7 @@ ArgoCD
 admin
 ```
 
-password will be decoded after the external-ip is available.
+#### Password
+```text
+admin
+```
