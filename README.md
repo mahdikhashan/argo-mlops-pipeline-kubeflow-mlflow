@@ -8,8 +8,7 @@ TODO
 
 ### Structure, language, and illustrations 
 
-TODO
-
+![Diagram](./docs/drawings/diagram.png)
 ### Summary of research 
 
 TODO
