@@ -3,18 +3,18 @@ backendStore:
   databaseMigration: true
   postgres:
     enabled: true
-    host: base-postgresql.default.svc.cluster.local
-    port: 5432
-    database: postgres
-    user: admin
-    password: admin
+    host: http://db-postgresql-nyc3-57647-do-user-15938594-0.g.db.ondigitalocean.com/
+    port: 25060
+    database: defaultdb
+    user: doadmin
+    password: AVNS_WfHenIgMHT_5Tr-2Cq1
 artifactRoot:
   s3:
     enabled: true
     bucket: mlflow
-    awsAccessKeyId: admin
-    awsSecretAccessKey: TzvAFVv3Wu
+    awsAccessKeyId: DO00JG8HAFM7XN7EYZEU
+    awsSecretAccessKey: mBHWu6861PCNFd1/rifx8zZ6brWwemFBElDFX3tzPY8
 extraEnvVars:
-  MLFLOW_S3_ENDPOINT_URL: base-minio.default.svc.cluster.local:9000
+  MLFLOW_S3_ENDPOINT_URL: https://jku-project-mlflow.nyc3.digitaloceanspaces.com
 serviceMonitor:
   enabled: true
