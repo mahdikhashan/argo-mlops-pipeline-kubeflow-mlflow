@@ -47,7 +47,7 @@ then store the generated token in a raw file named `dotoken` in the root path of
 next, run `init-doctl` from the Makefile like:
 
 ```bash
-Make init-doctl
+make init-doctl
 ```
 
 it will authenticate the CLI tool with the server and afterward we can use the services.
@@ -60,7 +60,7 @@ next, to create the cluster run `do-create-cluster`. it will create a cluster wi
 to run the command with Make:
 
 ```bash
-Make do-create-cluster
+make do-create-cluster
 ```
 
 this command will take a while and finally (if no interruption causes failure) we have a kubernetes cluster (with command plane on one node) and 
@@ -69,13 +69,13 @@ two worker node with the above config.
 then to store the cluster config on local (kubectl), use the `do-cluster-config` command, with make:
 
 ```bash
-Make do-cluster-config
+make do-cluster-config
 ```
 
 finally to make sure worker nodes are attached to the cluster, run `do-cluster-get-nodes`:
 
 ```bash
-Make do-cluster-get-nodes
+make do-cluster-get-nodes
 ```
 
 right now we should have a working cluster with 2 nodes. to further check the running pods, use `k9s` to observe already running
