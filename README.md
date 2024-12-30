@@ -5,28 +5,26 @@ MLOps Pipeline for Distributed Model Training with Kubeflow
 
 TODO
 
-
-### Structure, language, and illustrations 
-
-![Diagram](./docs/drawings/diagram.png)
-### Summary of research 
-
-TODO
-
 ### Tutorial (step-by-step instructions & reproducibility)
 
-link to API and UI docker images: https://hub.docker.com/u/mahdikhashan
+1. Setup local environment
+2. Setup cloud
+3. Install ArgoCD
+4. Install Apps
+5. Appends Configs
+6. Run Inference
 
-### Summary of lessons-learned
+##### Links 
 
-In pursuit of learning to implement infrastructure for Machine Learning in production, 
-I faced multiple challenges. I added multiple GitHub issues for each during different phases of project development.
+- link to API and UI docker images: https://hub.docker.com/u/mahdikhashan
 
-Additionally, I learned to use variety of tools, concepts and solution practices for implementing this project which I had never tried before like Bash, Makefiles
-, ArgoCD (GitOps), Kubernetes, Helm, Kubeflow, MLFlow and Streamlit. Foreach I have a few learning examples that comes in following paragraphs:
+#### Documentation
 
-##### Challenges while learning about Kubeflow: TODO
-
-TODO
-
-
+- [Research Summary](./docs/RESEARCH_SUMMARY.md)
+- [Learning](./docs/LEARNINGS.md)
+- [Architecture](./docs/ARCH.md)
+- [Challenges](./docs/CHALLENGES.md)
+- Components
+  - [Kubeflow](./docs/KUEBFLOW.md)
+  - [ArgoCD](./docs/ARGO.md)
+  - [MLFlow](./apps/registry/mlflow/README.md)
