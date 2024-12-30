@@ -1,3 +1,4 @@
+namespace: registry
 backendStore:
   databaseConnectionCheck: true
   databaseMigration: true
