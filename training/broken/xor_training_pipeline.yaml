@@ -29,7 +29,7 @@ deploymentSpec:
         command:
           - sh
           - -c
-          - "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet --no-warn-script-location 'kfp==2.9.0' '--no-deps' 'typing-extensions>=3.7.4,<5; python_version<\"3.9\"' && \"$0\" \"$@\"\n"
+          - "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet --no-warn-script-location 'kfp==2.9.0' '--no-deps' 'typing-extensions>=3.7.4,<5; python_version<\"3.9\"'  &&  python3 -m pip install --quiet --no-warn-script-location 'torch' 'torchinfo' && \"$0\" \"$@\"\n"
           - sh
           - -ec
           - 'program_path=$(mktemp -d)
@@ -52,7 +52,7 @@ deploymentSpec:
         command:
           - sh
           - -c
-          - "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet --no-warn-script-location 'kfp==2.9.0' '--no-deps' 'typing-extensions>=3.7.4,<5; python_version<\"3.9\"' && \"$0\" \"$@\"\n"
+          - "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet --no-warn-script-location 'kfp==2.9.0' '--no-deps' 'typing-extensions>=3.7.4,<5; python_version<\"3.9\"'  &&  python3 -m pip install --quiet --no-warn-script-location 'mlflow' && \"$0\" \"$@\"\n"
           - sh
           - -ec
           - 'program_path=$(mktemp -d)
@@ -63,7 +63,7 @@ deploymentSpec:
             _KFP_RUNTIME=true python3 -m kfp.dsl.executor_main                         --component_module_path                         "$program_path/ephemeral_component.py"                         "$@"
 
 '
-          - "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef setup_mlflow():\n    mlflow.set_tracking_uri(\"http://mlflow.default.svc.cluster.local:5000\")\n    mlflow.set_experiment(\"c2\")\n\n"
+          - "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef setup_mlflow():\n    import mlflow\n    mlflow.set_tracking_uri(\"http://mlflow.default.svc.cluster.local:5000\")\n    mlflow.set_experiment(\"c2\")\n\n"
         image: python:3.8
     exec-train-model:
       container:
@@ -75,7 +75,7 @@ deploymentSpec:
         command:
           - sh
           - -c
-          - "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet --no-warn-script-location 'kfp==2.9.0' '--no-deps' 'typing-extensions>=3.7.4,<5; python_version<\"3.9\"' && \"$0\" \"$@\"\n"
+          - "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet --no-warn-script-location 'kfp==2.9.0' '--no-deps' 'typing-extensions>=3.7.4,<5; python_version<\"3.9\"'  &&  python3 -m pip install --quiet --no-warn-script-location 'mlflow' 'torch' 'torchinfo' && \"$0\" \"$@\"\n"
           - sh
           - -ec
           - 'program_path=$(mktemp -d)
@@ -86,7 +86,7 @@ deploymentSpec:
             _KFP_RUNTIME=true python3 -m kfp.dsl.executor_main                         --component_module_path                         "$program_path/ephemeral_component.py"                         "$@"
 
 '
-          - "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef train_model(epochs: int, learning_rate: float):\n    import torch\n    import torch.nn as nn\n    import torch.optim as optim\n    from torchinfo import summary\n\n    device = torch.device(\"cuda\" if torch.cuda.is_available() else \"cpu\")\n\n    class XOR(nn.Module):\n        def __init__(self):\n            super(XOR, self).__init__()\n            self.fc1 = nn.Linear(2, 4, True)\n            self.fc2 = nn.Linear(4, 1, True)\n\n        def forward(self, x):\n            h = torch.tanh(self.fc1(x))\n            y = torch.sigmoid(self.fc2(h))\n            return y\n\n    model = XOR().to(device)\n    model.load_state_dict(torch.load('xor_model.pth'))\n\n    loss_fn = nn.BCELoss()\n    optimizer = optim.SGD(model.parameters(), lr=learning_rate)\n\n    X = torch.tensor([[0, 0], [0, 1], [1, 0], [1, 1]], device=device).float()\n    y = torch.tensor([[0], [1], [1], [0]], device=device).float()\n\n    with mlflow.start_run():\n        params = {\n            \"epochs\": epochs,\n            \"learning_rate\": learning_rate,\n            \"loss_function\": loss_fn.__class__.__name__,\n            \"optimizer\": \"SGD\",\n        }\n        mlflow.log_params(params)\n\n        with open(\"model_summary.txt\", \"w\") as f:\n            f.write(str(summary(model)))\n        mlflow.log_artifact(\"model_summary.txt\")\n\n        for epoch in range(epochs):\n            model.train()\n            pred = model(X)\n            loss = loss_fn(pred, y)\n            loss.backward()\n            optimizer.step()\n            optimizer.zero_grad()\n\n            mlflow.log_metric(key=\"train_loss\", value=loss.item(), step=epoch)\n            if epoch % 100 == 0:\n                print(f\"Epoch: {epoch}, Loss: {loss.item()}\")\n\n        mlflow.pytorch.log_model(model, registered_model_name=\"xor\", artifact_path=\"xor-model\")\n\n"
+          - "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import *\n\ndef train_model(epochs: int, learning_rate: float):\n    import mlflow\n    import torch\n    import torch.nn as nn\n    import torch.optim as optim\n    from torchinfo import summary\n\n    device = torch.device(\"cuda\" if torch.cuda.is_available() else \"cpu\")\n\n    class XOR(nn.Module):\n        def __init__(self):\n            super(XOR, self).__init__()\n            self.fc1 = nn.Linear(2, 4, True)\n            self.fc2 = nn.Linear(4, 1, True)\n\n        def forward(self, x):\n            h = torch.tanh(self.fc1(x))\n            y = torch.sigmoid(self.fc2(h))\n            return y\n\n    model = XOR().to(device)\n    model.load_state_dict(torch.load('xor_model.pth'))\n\n    loss_fn = nn.BCELoss()\n    optimizer = optim.SGD(model.parameters(), lr=learning_rate)\n\n    X = torch.tensor([[0, 0], [0, 1], [1, 0], [1, 1]], device=device).float()\n    y = torch.tensor([[0], [1], [1], [0]], device=device).float()\n\n    with mlflow.start_run():\n        params = {\n            \"epochs\": epochs,\n            \"learning_rate\": learning_rate,\n            \"loss_function\": loss_fn.__class__.__name__,\n            \"optimizer\": \"SGD\",\n        }\n        mlflow.log_params(params)\n\n        with open(\"model_summary.txt\", \"w\") as f:\n            f.write(str(summary(model)))\n        mlflow.log_artifact(\"model_summary.txt\")\n\n        for epoch in range(epochs):\n            model.train()\n            pred = model(X)\n            loss = loss_fn(pred, y)\n            loss.backward()\n            optimizer.step()\n            optimizer.zero_grad()\n\n            mlflow.log_metric(key=\"train_loss\", value=loss.item(), step=epoch)\n            if epoch % 100 == 0:\n                print(f\"Epoch: {epoch}, Loss: {loss.item()}\")\n\n        mlflow.pytorch.log_model(model, registered_model_name=\"xor\", artifact_path=\"xor-model\")\n\n"
         image: python:3.8
 pipelineInfo:
   description: A pipeline to train an XOR model using PyTorch and MLflow
