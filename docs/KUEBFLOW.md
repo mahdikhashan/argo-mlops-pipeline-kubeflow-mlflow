@@ -1,6 +1,8 @@
 ArgoCD
 ---
 
+### Credentials
+
 #### Username
 ```text
 user@example.com
@@ -10,3 +12,7 @@ user@example.com
 ```text
 12341234
 ```
+
+### Syncing Apps
+
+TODO
