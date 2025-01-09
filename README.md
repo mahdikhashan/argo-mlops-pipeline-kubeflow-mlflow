@@ -9,8 +9,10 @@ An MLOps pipeline using cloud native project Kubeflow to train and register mode
 
 | Application | Git Repository | Version |
 | - | - | - |
-| Kubeflow | https://github.com/mahdikhashan/kubeflow-helm-chart/tree/main | 0.0.1 |
+| Kubeflow | https://github.com/mahdikhashan/kubeflow-helm-chart | 0.0.1 |
 | MLFlow | https://github.com/mahdikhashan/mlflow-helm-chart | 0.0.1 |
+| Grafana | https://grafana.github.io/helm-charts | 8.6.4 |
+| Prometheus | https://prometheus-community.github.io/helm-charts | 26.0.0 |
 
 ---
 
