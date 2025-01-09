@@ -21,4 +21,4 @@ An MLOps Pipeline using cloud native project Kubeflow to train and register mode
 
 --- 
 
-[LICENCE](./LICENCE.md)
+[LICENCE](./LICENCE)
