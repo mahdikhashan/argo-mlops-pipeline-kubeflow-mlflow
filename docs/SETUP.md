@@ -1,5 +1,7 @@
 ### Setup
 
+follow the below steps to setup local environment, create cluster, install argo-cd and install the base app of argo-cd. afterward, continue with [ARGO](./ARGO.md) document for Syncing apps within the cluster.
+
 #### 1. Setup local environment
 
 To ease the project development and reproducibility, I have used a nix shell to separate this project from my local setup.
@@ -94,10 +96,3 @@ make install-base-argo-app
 ```
 
 it will install the base app of ArgoCD, and this app will install the rest (manual syncing is required - refer to [this](./docs/ARGO.md) doc). 
-
-5. Appends Configs
-6. Run Inference
-
-##### Links 
-
-- link to API and UI docker images: https://hub.docker.com/u/mahdikhashan
