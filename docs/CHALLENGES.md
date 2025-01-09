@@ -20,7 +20,7 @@ my fork is here: https://github.com/mahdikhashan/mlflow-helm-chart
 ##### second challenge: connect to database and object storage
 
 my first decision was to host the database, object storage required for mlflow - by myself. i pretty late understood its not a right approach.
-i can leave it the cloud - for anything like management and so on. 
+i can leave it to the cloud - for anything like management and so on. 
 
 the challenge was that i could not open the minio-ui by port-forwarding - there is an existing issue with kubernetes for it. finally, i found a solution (https://github.com/mahdikhashan/jku-cloud-computing/blob/local-debugging/debug/DEBUG.md). but eventually, when i connected both of them - in testing pipeline i could not register the model into it (which later i noticed it was another issue, not related to minio). 
 
