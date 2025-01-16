@@ -28,6 +28,7 @@ solution:
 
 so, i wasted a lot of time here, which i could go for the cloud provided solution for object storage and database. only for the idea of having a single command deployment solution. now i need to create db and object storage in cloud before hand.
 
-##### Challenges while learning about Kubeflow: TODO
 
-TODO
+##### ArgoCD
+
+1. Syncing Kubeflow: https://github.com/mahdikhashan/argocd-mlops-pipeline-kubeflow-mlflow/issues/29
