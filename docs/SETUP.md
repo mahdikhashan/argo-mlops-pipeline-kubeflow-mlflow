@@ -94,5 +94,3 @@ to setup the apps (kubeflow, mlflow, monitoring and inference) on ArgoCD, use th
 ```bash
 make install-base-argo-app
 ```
-
-it will install the base app of ArgoCD, and this app will install the rest (manual syncing is required - refer to [this](./docs/ARGO.md) doc). 
