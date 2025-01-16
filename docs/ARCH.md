@@ -1,4 +1,4 @@
 Architecture
 ---
 
-![Diagram](./drawings/diagram.png)
+![Diagram](images/diagram.png)
