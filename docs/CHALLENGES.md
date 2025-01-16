@@ -34,3 +34,12 @@ related issue: https://github.com/mahdikhashan/argocd-mlops-pipeline-kubeflow-ml
 #### ArgoCD
 
 1. Syncing Kubeflow: https://github.com/mahdikhashan/argocd-mlops-pipeline-kubeflow-mlflow/issues/29
+2. Automatic syncing fails without namespace being created first: https://github.com/mahdikhashan/argocd-mlops-pipeline-kubeflow-mlflow/issues/15
+
+#### Kubeflow Deployment
+
+1. Creating Notebook issue: https://github.com/mahdikhashan/argocd-mlops-pipeline-kubeflow-mlflow/issues/22
+
+#### Kubernetes
+
+1. Removing orphan component: https://github.com/mahdikhashan/argocd-mlops-pipeline-kubeflow-mlflow/issues/16
