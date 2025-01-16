@@ -1,6 +1,6 @@
 ### Setup
 
-follow the below steps to setup local environment, create cluster, install argo-cd and install the base app of argo-cd. afterward, continue with [ARGO](./ARGO.md) document for Syncing apps within the cluster.
+follow the below steps to setup local environment, create cluster, install argo-cd and install the base app of argo-cd. afterward, continue with [ARGO](./ARGO.md) document for syncing apps within the cluster.
 
 #### 1. Setup local environment
 
