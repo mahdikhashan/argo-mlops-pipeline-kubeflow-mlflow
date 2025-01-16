@@ -1,4 +1,4 @@
-ArgoCD
+Kubeflow
 ---
 
 ### Credentials
@@ -12,7 +12,3 @@ user@example.com
 ```text
 12341234
 ```
-
-### Syncing Apps
-
-TODO
