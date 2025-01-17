@@ -11,9 +11,9 @@ Some examples of other involved parts are:
 4. Machine Resource Management
 
 ![Real World ML System](./images/ml-sys.png)
-illustration is from experience of engineers at Google, [1](./REF.md)
+illustration is from experience of engineers at Google, [1](#tech-debt)
 
-Engineers at Google state that, developing ML Systems is cheap and fast, but maintaining them overtime is challenging and very expensive. [1](./REF.md)
+Engineers at Google state that, developing ML Systems is cheap and fast, but maintaining them overtime is challenging and very expensive. [1](./RESOURCES)
 
 ## Common Challanges
 
@@ -48,3 +48,11 @@ A common fix is **versioning data**, keeping stable copies of input data to avoi
 To avoid this, teams should **plan data processing carefully** or **redesign pipelines completely** for better efficiency.
 
 These issues often happen when research and engineering teams work separately. A **hybrid team** combining both roles can reduce these problems and improve collaboration.
+
+---
+References
+---
+
+<a name="tech-debt"></a>
+#### Hidden Technical Debt in Machine Learning Systems
+[Read the paper here](https://proceedings.neurips.cc/paper_files/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf)
