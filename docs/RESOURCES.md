@@ -1,4 +1,4 @@
-References
+Resources
 ---
 
 Papers:
@@ -29,6 +29,7 @@ Books:
 1. Distributed Machine Learning Patterns by Yuan Tang (https://www.goodreads.com/book/show/59113140-distributed-machine-learning-patterns)
 2. Machine Learning Yearning by Andrew Ng (https://www.goodreads.com/book/show/30741739-machine-learning-yearning)
 3. KubernetesL Up & Running by Hightower, Burns and Beda - First Edition (https://www.goodreads.com/book/show/26759355-kubernetes)
+4. Machine Learning in Action by Ben Wilson (https://www.goodreads.com/book/show/60701332-machine-learning-engineering-in-action)
 
 Videos:
 1. Production-Ready AI Platform on Kubernetes - Yuan Tang, Red Hat (https://www.youtube.com/watch?v=_RthQ01bwU8)

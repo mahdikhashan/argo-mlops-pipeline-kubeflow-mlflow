@@ -49,6 +49,23 @@ To avoid this, teams should **plan data processing carefully** or **redesign pip
 
 These issues often happen when research and engineering teams work separately. A **hybrid team** combining both roles can reduce these problems and improve collaboration.
 
+## Production Infra
+
+The primary objective of serving architectures is to develop a solution that is minimal in features, low in complexity, and cost-effective while effectively delivering model outputs.
+
+![Continous improvement life cycle](./images/ml-continous-improvement-life-cycle.png)
+illustration is from Machine Learning in Action by Ben Wilson, [2](#machine-learning-in-action)
+
+This diagram breaks down the **ML Continuous Improvement Life Cycle**, showing how models are continuously improved and maintained. The cycle works like this:
+
+1. **Performance Measurement and Analysis** – The model’s output is evaluated, often using A/B testing.
+2. **SME Feedback for Improvements** – Experts review results and suggest feature improvements.
+3. **Improvement Implementation and Model Retraining** – New features are developed, and the model is retrained.
+4. **Manual Validation and Deployment** – The updated model is manually tested and deployed.
+5. **Prediction Data Collection** – New prediction data is collected to start the next round of improvements.
+
+At the start, managing this process is simple. But after many iterations (like by cycle 37), it becomes hard to track which model version and training code are live in production. This highlights why automating retraining and deployment is important—to avoid manual work and keep things organized.
+
 ---
 References
 ---
@@ -56,3 +73,8 @@ References
 <a name="tech-debt"></a>
 #### Hidden Technical Debt in Machine Learning Systems
 [Read the paper here](https://proceedings.neurips.cc/paper_files/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf)
+
+<a name="machine-learning-in-action"></a>
+#### Machine Learning in Action by Ben Wilson
+[Book](https://www.goodreads.com/book/show/60701332-machine-learning-engineering-in-action)
+
