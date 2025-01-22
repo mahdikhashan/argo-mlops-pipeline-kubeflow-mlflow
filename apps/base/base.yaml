@@ -15,12 +15,12 @@ spec:
     - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
       targetRevision: main
       path: apps/kubeflow
-    - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
-      targetRevision: main
-      path: apps/monitoring/prometheus
-    - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
-      targetRevision: main
-      path: apps/monitoring/grafana
+      #    - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
+      #      targetRevision: main
+      #      path: apps/monitoring/prometheus
+      #    - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
+      #      targetRevision: main
+      #      path: apps/monitoring/grafana
     - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
       targetRevision: main
       path: apps/namespaces
