@@ -15,4 +15,4 @@ spec:
     path: ./
   destination:
     server: https://kubernetes.default.svc
-    namespace: registry
+    namespace: default
