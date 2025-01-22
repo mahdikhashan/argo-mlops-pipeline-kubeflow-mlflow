@@ -22,7 +22,7 @@ spec:
           databaseMigration: true
           postgres:
             enabled: true
-            host: http://db-postgresql-nyc1-76809-do-user-15938594-0.f.db.ondigitalocean.com/
+            host: db-postgresql-nyc1-76809-do-user-15938594-0.f.db.ondigitalocean.com
             port: 25060
             database: defaultdb
             user: doadmin
