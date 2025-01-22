@@ -13,8 +13,9 @@ spec:
     repoURL: https://github.com/mahdikhashan/mlflow-helm-chart
     targetRevision: mlflow
     path: ./
-    valueFiles:
-      - values.yaml
+    helm:
+      valueFiles:
+        - values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: registry
