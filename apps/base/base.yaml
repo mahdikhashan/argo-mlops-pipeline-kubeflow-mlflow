@@ -7,13 +7,13 @@ spec:
   project: default
   source:
     repoURL: https://github.com/mahdikhashan/jku-cloud-computing
-    targetRevision: main
+    targetRevision: pipelines
     path: apps
   destination:
     server: https://kubernetes.default.svc
   sources:
     - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
-      targetRevision: main
+      targetRevision: pipelines
       path: apps/kubeflow
       #    - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
       #      targetRevision: main
@@ -22,8 +22,8 @@ spec:
       #      targetRevision: main
       #      path: apps/monitoring/grafana
     - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
-      targetRevision: main
+      targetRevision: pipelines
       path: apps/namespaces
     - repoURL: https://github.com/mahdikhashan/jku-cloud-computing
-      targetRevision: main
+      targetRevision: pipelines
       path: apps/registry/mlflow
