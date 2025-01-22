@@ -15,6 +15,7 @@ spec:
     path: ./
     helm:
       values: |
+        global: {}
         namespace: registry
         backendStore:
           databaseConnectionCheck: true
