@@ -14,8 +14,28 @@ spec:
     targetRevision: mlflow
     path: ./
     helm:
-      valueFiles:
-        - values.yaml
+      values: |
+        namespace: registry
+        backendStore:
+          databaseConnectionCheck: true
+          databaseMigration: true
+          postgres:
+            enabled: true
+            host: http://db-postgresql-nyc1-76809-do-user-15938594-0.f.db.ondigitalocean.com/
+            port: 25060
+            database: defaultdb
+            user: doadmin
+            password: AVNS_iPwe3bKVONofhCFIHPr
+        artifactRoot:
+          s3:
+            enabled: true
+            bucket: mlopsjku
+            awsAccessKeyId: DO00HRJ8C8AC6MLGX4NT
+            awsSecretAccessKey: n4p3uOuN2jSKiCbPkwNbKy536F4V9ry2irAPdW/rSOQ
+        extraEnvVars:
+          MLFLOW_S3_ENDPOINT_URL: https://mlopsjku.nyc3.digitaloceanspaces.com
+        serviceMonitor:
+          enabled: true
   destination:
     server: https://kubernetes.default.svc
     namespace: registry
